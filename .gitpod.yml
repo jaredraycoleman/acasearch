@@ -1,0 +1,16 @@
+image:
+  file: .gitpod.Dockerfile
+github:  
+  prebuilds:
+    master: true
+    branches: true
+    pullRequests: true
+    pullRequestsFromForks: true
+    addCheck: false
+    addComment: false
+    addBadge: true
+tasks:
+  - name: Install Python Packages
+    init: |
+      pip install --upgrade pip
+      pip install -r ./requirements.txt
