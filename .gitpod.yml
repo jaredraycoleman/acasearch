@@ -14,3 +14,8 @@ tasks:
     init: |
       pip install --upgrade pip
       pip install -r ./requirements.txt
+vscode:
+  extensions:
+    - "ms-python.python"
+    - "ms-azuretools.vscode-docker"
+    - "mechatroner.rainbow-csv"
