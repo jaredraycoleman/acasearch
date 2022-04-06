@@ -9,6 +9,8 @@ from thefuzz import fuzz
 
 thisdir = pathlib.Path(__file__).resolve().parent
 
+SORT_COLS = ["CORE Rank", "ERA Rank", "Qualis Rank", "h5-index"]
+
 def score(clauses: List[List[str]], topics: str) -> float:
     return min( # max match across clauses - ALL clauses should match
         max( # max across topics and queries - any query can match any topic
@@ -30,7 +32,7 @@ def load_data() -> pd.DataFrame:
 def query_data(df: pd.DataFrame, query: List[List[str]]) -> pd.DataFrame:
     df.loc[:, "Query Score"] = df["Topics"].apply(partial(score, query))
     df = df.sort_values(
-        by=["Query Score", "ERA Rank", "Qualis Rank"], 
+        by=["Query Score", *SORT_COLS], 
         ascending=[False, True, True]
     )
     return df
@@ -43,10 +45,15 @@ def to_report(df: pd.DataFrame) -> str:
 
 def main():
     query = [
-        ["mobile"],
-        ["agent", "robot"]
+        # ["mobile"],
+        # ["agent", "robot"]
     ]
-    df = query_data(load_data(), query)
+    df = load_data()
+    if query:
+        df = query_data(df, query)
+    else:
+        df = df.sort_values(by=SORT_COLS)
+
     print(to_report(df))
 
 if __name__ == "__main__":
