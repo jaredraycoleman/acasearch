@@ -36,7 +36,7 @@ def query_data(df: pd.DataFrame, query: List[List[str]]) -> pd.DataFrame:
     return df
 
 def to_report(df: pd.DataFrame) -> str:
-    columns = ["Conference", "ERA Rank", "Qualis Rank", "Last Deadline", "Name", "Query Score"]
+    columns = ["Conference", "h5-index", "CORE Rank", "ERA Rank", "Qualis Rank", "Last Deadline", "Name", "Query Score"]
     columns = [col for col in df.columns if col in columns]
     df.loc[:, "Last Deadline"] = df["Last Deadline"].dt.strftime("%b %d")
     return df[columns].to_string(index=None)
