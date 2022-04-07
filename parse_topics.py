@@ -2,34 +2,26 @@ import re
 import pyperclip
 
 SUBJECTS = """
-Mobile User Experience
-Security and Privacy
-User Behaviour Analysis and Modelling
-Crowdsourcing – Platforms and Applications
-Internet of Things – Systems, Data Analytics, and Applications
-Urban/mobile Crowd-sensing
-Participatory Sensing
-Wireless Access Technologies
-Performance Analysis, Modelling and Measurement of Mobile Networks
-Wearable Computing
-Body Area Networks
-Mobile Data Analysis and Mobile Platforms
-Mobile Multimedia
-Mobile User Interfaces and Interaction Technologies
-Toolkit and Languages for Mobile Computing
-Networked Sensing and Applications
-Mobile Device Architectures
-Mobile Systems and Applications
-Mobile Data Management and Analytics
-Energy Aware Mobile Computing
-Pervasive Sensing
-Localization and Tracking
-Activity Recognition
-Social Network Applications to Mobile Computing
-Context and Location-based Applications and Services
-AI and Machine Learning Algorithms and Application for Mobile Computing
-Mobile Augmented Reality/Mixed Reality
-Mobile Cloud Computing
+Anti-malware techniques: detection, analysis, and prevention
+Cyber-crime defense and forensics (e.g., anti-phishing, anti-blackmailing, anti-fraud techniques)
+Security for future Internet architectures and designs (e.g., Software-Defined Networking)
+Implementation, deployment and management of network security policies
+Integrating security in network protocols (e.g., routing, naming, and management)
+Cyber attack (e.g., APTs, botnets, DDoS) prevention, detection, investigation, and response
+Software/firmware analysis, customization, and transformation for systems security
+Privacy and anonymity in networks and distributed systems
+Security and privacy for blockchains and cryptocurrencies
+Public key infrastructures, key management, certification, and revocation
+Security for cloud/edge computing
+Security and privacy of mobile/smartphone platforms
+Security for cyber-physical systems (e.g., autonomous vehicles, industrial control systems)
+Security for emerging networks (e.g., home networks, IoT, body-area networks, VANETs)
+Security for large-scale, critical infrastructures (e.g., electronic voting, smart grid)
+Security and privacy of systems based on machine learning and AI
+Security of Web-based applications and services (e.g., social networking, crowd-sourcing)
+Special problems and case studies: e.g., tradeoffs between security and efficiency, usability, cost, and ethics
+Usable security and privacy
+Trustworthy Computing software and hardware to secure networks and systems
 """
 
 def main():
