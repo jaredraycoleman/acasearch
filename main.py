@@ -58,45 +58,37 @@ def to_report(df: pd.DataFrame) -> str:
 
 
 # API
-def do_query(query: List[List[str]]) -> None:
+def remaining_days(deadline: datetime) -> int:
+    return (deadline - datetime.today()).days % 365
+
+def do_query(query: List[List[str]], sort_upcoming: bool = False) -> None:
     df = load_data()
+
+    sort_cols = [*SORT_COLS]
+    if sort_upcoming:
+        df["Remaining Days"] = df["Last Deadline"].apply(remaining_days)
+        sort_cols = ["Remaining Days", *sort_cols]
+
+    # df = df[df["Last Deadline"] - datetime.today()]
     if query:
-        df = sort_data(
-            query_data(df, query),
-            cols=["Query Score", *SORT_COLS]
-        )
-    else:
-        df = sort_data(df)
+        df = query_data(df, query)
+        sort_cols = ["Query Score", *sort_cols]
 
-    print(to_report(df))
-
-def do_upcoming_deadlines(query: List[List[str]],
-                          day_pad: int = 0) -> None:
-    df = load_data()
-    df = df[df["Last Deadline"] - timedelta(days=day_pad) >= datetime.today()]
-    if query:
-        df = sort_data(
-            query_data(df, query),
-            cols=["Query Score", "Last Deadline", *SORT_COLS]
-        )
-    else:
-        df = sort_data(df, ["Last Deadline", *SORT_COLS])
-
+    df = sort_data(df, sort_cols)
     print(to_report(df))
 
 def main():
     query = [
-        ["mobile"],
-        ["agent", "robot", "online"],
+        # ["mobile"],
+        # ["agent", "robot", "online"],
         # ["distributed"].
         # ["competitive"],
-        # ["blockchain"],
-        # ["iot"]
+        ["blockchain"],
+        # ["system", "application"],
+        ["iot"]
     ]
 
-    do_query(query)
-    # do_upcoming_deadlines(query, day_pad=-365)
-
+    do_query(query, sort_upcoming=False)
 
 if __name__ == "__main__":
     main()
