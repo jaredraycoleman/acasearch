@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta
+from io import StringIO
 import pathlib
 from functools import partial
 from statistics import mean
@@ -24,7 +25,14 @@ def score(clauses: List[List[str]], topics: str) -> float:
     )
 
 def load_data() -> pd.DataFrame:
-    df = pd.read_csv(thisdir.joinpath("data.csv"))
+    df = pd.read_csv(
+        StringIO(
+            ''.join([
+                i if ord(i) < 128 else ' ' 
+                for i in thisdir.joinpath("data.csv").read_text()
+            ])
+        )
+    )
     df.loc[:, "Last Deadline"] = df["Last Deadline"].apply(date_parse)
     df["CORE Rank"] = pd.Categorical(df["CORE Rank"], ["A*", "A", "B", "C"])
     return df
@@ -79,11 +87,15 @@ def do_upcoming_deadlines(query: List[List[str]],
 def main():
     query = [
         ["mobile"],
-        ["agent", "robot"]
+        ["agent", "robot", "online"],
+        # ["distributed"].
+        # ["competitive"],
+        # ["blockchain"],
+        # ["iot"]
     ]
 
-    # do_query(query)
-    do_upcoming_deadlines(query)
+    do_query(query)
+    # do_upcoming_deadlines(query, day_pad=-365)
 
 
 if __name__ == "__main__":
