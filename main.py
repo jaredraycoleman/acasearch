@@ -1,9 +1,10 @@
-from datetime import datetime, timedelta
+import argparse
+from datetime import datetime
 from io import StringIO
 import pathlib
-from functools import partial
-from statistics import mean
-from typing import List, Tuple
+from functools import lru_cache, partial
+import sys
+from typing import List
 
 import pandas as pd
 from dateutil.parser import parse as date_parse
@@ -24,6 +25,7 @@ def score(clauses: List[List[str]], topics: str) -> float:
         for clause in clauses
     )
 
+@lru_cache(maxsize=None)
 def load_data() -> pd.DataFrame:
     df = pd.read_csv(
         StringIO(
@@ -33,16 +35,16 @@ def load_data() -> pd.DataFrame:
             ])
         )
     )
-    df.loc[:, "Last Deadline"] = df["Last Deadline"].apply(date_parse)
-    df["CORE Rank"] = pd.Categorical(df["CORE Rank"], ["A*", "A", "B", "C"])
+    df.loc[:, "last_deadline"] = df["last_deadline"].apply(date_parse)
+    df["core_rank"] = pd.Categorical(df["core_rank"], ["A*", "A", "B", "C"])
     return df
 
 def query_data(df: pd.DataFrame, query: List[List[str]]) -> pd.DataFrame:
-    df.loc[:, "Query Score"] = df["Topics"].apply(partial(score, query))
+    df.loc[:, "query_score"] = df["topics"].apply(partial(score, query))
     return df
 
-SORT_COLS = ["CORE Rank", "ERA Rank", "Qualis Rank", "h5-index"]
-DESCENDING_COLS = {"Query Score"}
+SORT_COLS = ["core_rank", "era_rank", "qualis_rank", "h5_index"]
+DESCENDING_COLS = {"query_score"}
 def sort_data(df: pd.DataFrame, 
               cols: List[str] = SORT_COLS) -> pd.DataFrame:
     return df.sort_values(
@@ -51,9 +53,9 @@ def sort_data(df: pd.DataFrame,
     )
 
 def to_report(df: pd.DataFrame) -> str:
-    columns = ["Conference", "h5-index", "CORE Rank", "ERA Rank", "Qualis Rank", "Last Deadline", "Name", "Query Score"]
+    columns = ["conference", "h5_index", "core_rank", "era_rank", "qualis_rank", "last_deadline", "name", "query_score"]
     columns = [col for col in df.columns if col in columns]
-    df.loc[:, "Last Deadline"] = df["Last Deadline"].dt.strftime("%b %d")
+    df.loc[:, "last_deadline"] = df["last_deadline"].dt.strftime("%b %d")
     return df[columns].to_string(index=None)
 
 
@@ -66,29 +68,53 @@ def do_query(query: List[List[str]], sort_upcoming: bool = False) -> None:
 
     sort_cols = [*SORT_COLS]
     if sort_upcoming:
-        df["Remaining Days"] = df["Last Deadline"].apply(remaining_days)
-        sort_cols = ["Remaining Days", *sort_cols]
+        df["remaining_days"] = df["last_deadline"].apply(remaining_days)
+        sort_cols = ["remaining_days", *sort_cols]
 
-    # df = df[df["Last Deadline"] - datetime.today()]
+    # df = df[df["last_deadline"] - datetime.today()]
     if query:
         df = query_data(df, query)
-        sort_cols = ["Query Score", *sort_cols]
+        sort_cols = ["query_score", *sort_cols]
 
     df = sort_data(df, sort_cols)
     print(to_report(df))
 
-def main():
-    query = [
-        # ["mobile"],
-        # ["agent", "robot", "online"],
-        # ["distributed"].
-        # ["competitive"],
-        ["blockchain"],
-        # ["system", "application"],
-        ["iot"]
-    ]
+def get_parser() -> argparse.ArgumentParser():
+    df = load_data()
 
-    do_query(query, sort_upcoming=False)
+    parser = argparse.ArgumentParser()
+    subparsers = parser.add_subparsers()
+
+    query_parser = subparsers.add_parser("query")
+    query_parser.add_argument("query", help="semi-colon seperated AND clauses of comma-seperated OR keywords")
+    query_parser.add_argument("--upcoming", action="store_true", help="if set, sort by upcoming deadline before ranking")
+    query_parser.set_defaults(command="query")
+
+    get_parser = subparsers.add_parser("get")
+    get_parser.add_argument("conference", choices=df["conference"].unique(), help="conference to get data for")
+    get_parser.add_argument("column", choices=df.columns, help="column to get data for")
+    get_parser.set_defaults(command="get")
+
+    return parser
+
+def main():
+    parser = get_parser()
+    args = parser.parse_args()
+
+    if not hasattr(args, "command"):
+        sys.argv.append("--help")
+        parser.parse_args()
+    elif args.command == "query":
+        query = [[keyword for keyword in clause.split(",")] for clause in args.query.split(";")]
+        do_query(query, sort_upcoming=args.upcoming)
+    elif args.command == "get":
+        df = load_data()
+        data = df.set_index("conference").loc[args.conference,args.column]
+        if args.column == "topics":
+            data = "\n".join(data.split(" // "))
+        elif args.column == "last_deadline":
+            data = data.strftime("%B %d")
+        print(data)
 
 if __name__ == "__main__":
     main()
