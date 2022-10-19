@@ -1,10 +1,10 @@
 import argparse
-from datetime import datetime
-from io import StringIO
 import pathlib
-from functools import lru_cache, partial
 import sys
-from typing import List
+from datetime import datetime
+from functools import lru_cache, partial
+from io import StringIO
+from typing import List, Optional
 
 import pandas as pd
 from dateutil.parser import parse as date_parse
@@ -79,16 +79,31 @@ def do_query(query: List[List[str]], sort_upcoming: bool = False) -> None:
     df = sort_data(df, sort_cols)
     print(to_report(df))
 
-def get_parser() -> argparse.ArgumentParser():
+def search_command(args: argparse.Namespace) -> None:
+    query = [[keyword for keyword in clause.split(",")] for clause in args.query.split(";")]
+    do_query(query, sort_upcoming=args.upcoming)
+
+def get_command(args: argparse.Namespace) -> None:
+    df = load_data()
+    data = df.set_index("conference").loc[args.conference,args.column]
+    if args.column == "topics":
+        data = "\n".join(data.split(" // "))
+    elif args.column == "last_deadline":
+        data = data.strftime("%B %d")
+    print(data)
+
+
+def get_parser(parser: Optional[argparse.ArgumentParser] = None) -> argparse.ArgumentParser():
     df = load_data()
 
-    parser = argparse.ArgumentParser()
+    if parser is None:
+        parser = argparse.ArgumentParser()
     subparsers = parser.add_subparsers()
 
     query_parser = subparsers.add_parser("search")
     query_parser.add_argument("query", help="Semi-colon seperated AND clauses of comma-seperated OR keywords")
     query_parser.add_argument("--upcoming", action="store_true", help="If set, sort by upcoming deadline before ranking")
-    query_parser.set_defaults(command="search")
+    query_parser.set_defaults(func=search_command)
 
     get_parser = subparsers.add_parser("get")
     get_parser.add_argument(
@@ -102,8 +117,8 @@ def get_parser() -> argparse.ArgumentParser():
         choices=df.columns, 
         metavar='ATTRIBUTE',
          help="Conference attribute to get - one of: [" + ', '.join(df.columns) + "]"
-        )
-    get_parser.set_defaults(command="get")
+    )
+    get_parser.set_defaults(func=get_command)
     return parser
 
 def main():
@@ -113,17 +128,8 @@ def main():
     if not hasattr(args, "command"):
         sys.argv.append("--help")
         parser.parse_args()
-    elif args.command == "search":
-        query = [[keyword for keyword in clause.split(",")] for clause in args.query.split(";")]
-        do_query(query, sort_upcoming=args.upcoming)
-    elif args.command == "get":
-        df = load_data()
-        data = df.set_index("conference").loc[args.conference,args.column]
-        if args.column == "topics":
-            data = "\n".join(data.split(" // "))
-        elif args.column == "last_deadline":
-            data = data.strftime("%B %d")
-        print(data)
+    else:
+        args.func(args)
         
 if __name__ == "__main__":
     main()
