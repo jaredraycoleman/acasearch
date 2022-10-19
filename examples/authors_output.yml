@@ -1,0 +1,2729 @@
+- name: David Peleg
+  venue_gpa: 3.68
+  venues:
+    PODC:
+      h5_index: 29.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A1
+      name: ACM Symposium on Principles of Distributed Computing
+      count: 30
+    SIROCCO:
+      h5_index: null
+      core_rank: B
+      era_rank: B
+      qualis_rank: B2
+      name: Colloquium on Structural Information and Communication Complexity
+      count: 20
+    DISC:
+      h5_index: 22.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A2
+      name: International Symposium on Distributed Computing
+      count: 16
+    SODA:
+      h5_index: 57.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A1
+      name: Symposium on Discrete Algorithms
+      count: 15
+    STOC:
+      h5_index: 62.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A1
+      name: ACM Symposium on Theory of Computing
+      count: 15
+    ICALP:
+      h5_index: 33.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A1
+      name: International Colloquium on Automata, Languages, and Programming
+      count: 13
+    FOCS:
+      h5_index: 52.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A1
+      name: Symposium on Foundations of Computer Science
+      count: 11
+    ESA:
+      h5_index: 21.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A2
+      name: European Symposium on Algorithms
+      count: 8
+    STACS:
+      h5_index: 21.0
+      core_rank: A
+      era_rank: B
+      qualis_rank: A2
+      name: International Symposium on Theoretical Aspects of Computer Science
+      count: 8
+    MFCS:
+      h5_index: 18.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: B1
+      name: International Symposium on Mathematical Foundations of Computer Science
+      count: 6
+    SWAT:
+      h5_index: null
+      core_rank: B
+      era_rank: B
+      qualis_rank: B1
+      name: Scandinavian Symposium and Workshops on Algorithm Theory
+      count: 6
+    ISAAC:
+      h5_index: 14.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: B1
+      name: International Symposium on Algorithms and Computation
+      count: 6
+    SPAA:
+      h5_index: 24.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A2
+      name: Symposium on Parallelism in Algorithms and Architectures
+      count: 6
+    WG:
+      h5_index: 13.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: B1
+      name: Workshop on Graph-Theoretic Concepts in Computer Science
+      count: 6
+    WDAG:
+      h5_index: 22.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A2
+      name: International Symposium on Distributed Computing
+      count: 6
+    ISTCS:
+      count: 5
+    CIAC:
+      h5_index: null
+      core_rank: C
+      era_rank: C
+      qualis_rank: null
+      name: International Conference on Algorithms and Complexity
+      count: 4
+    SOFSEM:
+      h5_index: null
+      core_rank: B
+      era_rank: B
+      qualis_rank: B1
+      name: Current Trends in Theory and Practice of Computer Science
+      count: 3
+    ASONAM:
+      h5_index: 34.0
+      core_rank: null
+      era_rank: null
+      qualis_rank: B4
+      name: International Conference on Advances in Social Networks Analysis and Mining
+      count: 3
+    WADS:
+      h5_index: 13.0
+      core_rank: B
+      era_rank: A
+      qualis_rank: B1
+      name: Algorithms and Data Structures Symposium
+      count: 3
+    IWDC:
+      count: 2
+    WALCOM:
+      h5_index: 12.0
+      core_rank: B
+      era_rank: C
+      qualis_rank: null
+      name: International Workshop on Algorithms and Computation
+      count: 2
+    IWOCA:
+      h5_index: 10.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: null
+      name: International Workshop on Combinatorial Algorithms
+      count: 2
+    ICDCN:
+      h5_index: 5.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B4
+      name: International Conference on Distributed Computing and Networking
+      count: 2
+    ADHOC-NOW:
+      h5_index: null
+      core_rank: C
+      era_rank: B
+      qualis_rank: B1
+      name: International Conference on Ad Hoc Networks and Wireless
+      count: 2
+    INFOCOM:
+      h5_index: 70.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A1
+      name: IEEE International Conference on Computer Communications
+      count: 2
+    ICPR:
+      count: 2
+    CVPR:
+      count: 2
+    EMBC:
+      count: 1
+    BIBE:
+      count: 1
+    HealthGrid:
+      count: 1
+    IPDPS:
+      h5_index: 40.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A
+      name: International Parallel & Distributed Processing Symposium
+      count: 1
+    WINE:
+      count: 1
+    WWW:
+      count: 1
+    GAMENETS:
+      count: 1
+    IJCAI:
+      h5_index: 105.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A1
+      name: International Joint Conference on Artificial Intelligence
+      count: 1
+    KDD:
+      count: 1
+    ITCS:
+      h5_index: 33.0
+      core_rank: A
+      era_rank: null
+      qualis_rank: null
+      name: Conference on Innovations in Theoretical Computer Science
+      count: 1
+    Language, Culture, Computation:
+      count: 1
+    FUN:
+      h5_index: null
+      core_rank: B
+      era_rank: B
+      qualis_rank: null
+      name: Conference on Fun with Algorithms
+      count: 1
+    FCT:
+      h5_index: null
+      core_rank: B
+      era_rank: A
+      qualis_rank: B2
+      name: International Symposium on Fundamentals of Computation Theory
+      count: 1
+    MedAlg:
+      count: 1
+    SEA:
+      count: 1
+    SSS:
+      h5_index: null
+      core_rank: C
+      era_rank: C
+      qualis_rank: null
+      name: International Symposium on Stabilization, Safety, and Security of Distributed
+        Systems
+      count: 1
+    HiPC:
+      count: 1
+    WAOA:
+      h5_index: null
+      core_rank: B
+      era_rank: B
+      qualis_rank: B4
+      name: Workshop on Approximation and Online Algorithms
+      count: 1
+    ICDCIT:
+      count: 1
+    CAAN:
+      count: 1
+    ICDCS:
+      h5_index: 45.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A1
+      name: International Conference on Distributed Computing Systems
+      count: 1
+    OPODIS:
+      h5_index: 15.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B2
+      name: International Conference on Principles of Distributed Systems
+      count: 1
+    WONS:
+      count: 1
+    EC:
+      count: 1
+    SRDS:
+      h5_index: 17.0
+      core_rank: B
+      era_rank: A
+      qualis_rank: A2
+      name: International Symposium on Reliable Distributed Systems
+      count: 1
+    IPCO:
+      h5_index: 17.0
+      core_rank: A
+      era_rank: B
+      qualis_rank: B1
+      name: Conference on Integer Programming and Combinatorial Optimization
+      count: 1
+    Robust Communication Networks - Interconnection and Survivability:
+      count: 1
+    On-Line Algorithms:
+      count: 1
+    SIGCOMM:
+      h5_index: 60.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A1
+      name: ACM Conference on Applications, Technologies, Architectures, and Protocols
+        for Computer Communication
+      count: 1
+    SIGAL International Symposium on Algorithms:
+      count: 1
+    AWOC:
+      count: 1
+    AIME:
+      count: 1
+    IGARSS:
+      count: 1
+    MSST:
+      count: 1
+    MedInfo:
+      count: 1
+- name: Danny Krizanc
+  venue_gpa: 3.34
+  venues:
+    SIROCCO:
+      h5_index: null
+      core_rank: B
+      era_rank: B
+      qualis_rank: B2
+      name: Colloquium on Structural Information and Communication Complexity
+      count: 15
+    ISAAC:
+      h5_index: 14.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: B1
+      name: International Symposium on Algorithms and Computation
+      count: 8
+    SPAA:
+      h5_index: 24.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A2
+      name: Symposium on Parallelism in Algorithms and Architectures
+      count: 8
+    SPDP:
+      count: 7
+    LATIN:
+      h5_index: 14.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B1
+      name: Latin American Theoretical Informatics Symposium
+      count: 5
+    CIAC:
+      h5_index: null
+      core_rank: C
+      era_rank: C
+      qualis_rank: null
+      name: International Conference on Algorithms and Complexity
+      count: 5
+    Euro-Par:
+      h5_index: 22.0
+      core_rank: B
+      era_rank: A
+      qualis_rank: A2
+      name: International European Conference on Parallel and Distributed Computing
+      count: 5
+    PODC:
+      h5_index: 29.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A1
+      name: ACM Symposium on Principles of Distributed Computing
+      count: 4
+    WG:
+      h5_index: 13.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: B1
+      name: Workshop on Graph-Theoretic Concepts in Computer Science
+      count: 4
+    ALGOSENSORS:
+      h5_index: null
+      core_rank: C
+      era_rank: C
+      qualis_rank: B3
+      name: Algorithmic Aspects of Wireless Sensor Networks
+      count: 4
+    ADHOC-NOW:
+      h5_index: null
+      core_rank: C
+      era_rank: B
+      qualis_rank: B1
+      name: International Conference on Ad Hoc Networks and Wireless
+      count: 4
+    STACS:
+      h5_index: 21.0
+      core_rank: A
+      era_rank: B
+      qualis_rank: A2
+      name: International Symposium on Theoretical Aspects of Computer Science
+      count: 4
+    ICALP:
+      h5_index: 33.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A1
+      name: International Colloquium on Automata, Languages, and Programming
+      count: 3
+    FUN:
+      h5_index: null
+      core_rank: B
+      era_rank: B
+      qualis_rank: null
+      name: Conference on Fun with Algorithms
+      count: 3
+    SOFSEM:
+      h5_index: null
+      core_rank: B
+      era_rank: B
+      qualis_rank: B1
+      name: Current Trends in Theory and Practice of Computer Science
+      count: 3
+    IPDPS:
+      h5_index: 40.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A
+      name: International Parallel & Distributed Processing Symposium
+      count: 3
+    COCOA:
+      h5_index: 9.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B4
+      name: Conference on Combinatorial Optimization and Applications
+      count: 3
+    CCCG:
+      h5_index: 8.0
+      core_rank: B
+      era_rank: C
+      qualis_rank: B2
+      name: The Canadian Conference on Computational Geometry
+      count: 3
+    MFCS:
+      h5_index: 18.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: B1
+      name: International Symposium on Mathematical Foundations of Computer Science
+      count: 3
+    ESA:
+      h5_index: 21.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A2
+      name: European Symposium on Algorithms
+      count: 3
+    STOC:
+      h5_index: 62.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A1
+      name: ACM Symposium on Theory of Computing
+      count: 2
+    AAIM:
+      count: 2
+    DISC:
+      h5_index: 22.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A2
+      name: International Symposium on Distributed Computing
+      count: 2
+    JCDCG:
+      count: 2
+    Graph Drawing:
+      count: 2
+    FOCS:
+      h5_index: 52.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A1
+      name: Symposium on Foundations of Computer Science
+      count: 2
+    IWOCA:
+      h5_index: 10.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: null
+      name: International Workshop on Combinatorial Algorithms
+      count: 1
+    SSS:
+      h5_index: null
+      core_rank: C
+      era_rank: C
+      qualis_rank: null
+      name: International Symposium on Stabilization, Safety, and Security of Distributed
+        Systems
+      count: 1
+    WALCOM:
+      h5_index: 12.0
+      core_rank: B
+      era_rank: C
+      qualis_rank: null
+      name: International Workshop on Algorithms and Computation
+      count: 1
+    FPS:
+      count: 1
+    ICDCN:
+      h5_index: 5.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B4
+      name: International Conference on Distributed Computing and Networking
+      count: 1
+    WAOA:
+      h5_index: null
+      core_rank: B
+      era_rank: B
+      qualis_rank: B4
+      name: Workshop on Approximation and Online Algorithms
+      count: 1
+    CSR:
+      count: 1
+    ICCABS:
+      count: 1
+    MASS:
+      h5_index: 18.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B1
+      name: International Conference on Mobile Ad-Hoc and Smart Systems
+      count: 1
+    BIBE:
+      count: 1
+    Financial Cryptography:
+      count: 1
+    TAMC:
+      h5_index: 9.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: null
+      name: ' Conference on Theory and Applications of Models of Computation'
+      count: 1
+    ANALCO:
+      count: 1
+    ISBRA:
+      count: 1
+    TGC:
+      count: 1
+    WiMob:
+      count: 1
+    OPODIS:
+      h5_index: 15.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B2
+      name: International Conference on Principles of Distributed Systems
+      count: 1
+    ICWI:
+      count: 1
+    ICDCS:
+      h5_index: 45.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A1
+      name: International Conference on Distributed Computing Systems
+      count: 1
+    GLOBECOM:
+      h5_index: null
+      core_rank: B
+      era_rank: B
+      qualis_rank: A1
+      name: IEEE Global Communications Conference
+      count: 1
+    International Conference on Internet Computing:
+      count: 1
+    IFIP TCS:
+      count: 1
+    ICALP Satellite Workshops:
+      count: 1
+    IPPS/SPDP:
+      count: 1
+    HICSS:
+      count: 1
+    IPPS/SPDP Workshops:
+      count: 1
+    COCOON:
+      h5_index: 12.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: B1
+      name: International Computing and Combinatorics Conference
+      count: 1
+    CP:
+      count: 1
+    IEEE PACT:
+      count: 1
+    Satisfiability Problem - Theory and Applications:
+      count: 1
+    Euro-Par, Vol. I:
+      count: 1
+    ISTCS:
+      count: 1
+    CCS:
+      count: 1
+    Canada-France Conference on Parallel and Distributed Computing:
+      count: 1
+    WADS:
+      h5_index: 13.0
+      core_rank: B
+      era_rank: A
+      qualis_rank: B1
+      name: Algorithms and Data Structures Symposium
+      count: 1
+    IPPS:
+      count: 1
+    FSTTCS:
+      count: 1
+    ICCI:
+      count: 1
+    AWOC:
+      count: 1
+- name: Evangelos Kranakis
+  venue_gpa: 3.13
+  venues:
+    SIROCCO:
+      h5_index: null
+      core_rank: B
+      era_rank: B
+      qualis_rank: B2
+      name: Colloquium on Structural Information and Communication Complexity
+      count: 25
+    ADHOC-NOW:
+      h5_index: null
+      core_rank: C
+      era_rank: B
+      qualis_rank: B1
+      name: International Conference on Ad Hoc Networks and Wireless
+      count: 16
+    CCCG:
+      h5_index: 8.0
+      core_rank: B
+      era_rank: C
+      qualis_rank: B2
+      name: The Canadian Conference on Computational Geometry
+      count: 13
+    ALGOSENSORS:
+      h5_index: null
+      core_rank: C
+      era_rank: C
+      qualis_rank: B3
+      name: Algorithmic Aspects of Wireless Sensor Networks
+      count: 11
+    ISAAC:
+      h5_index: 14.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: B1
+      name: International Symposium on Algorithms and Computation
+      count: 7
+    LATIN:
+      h5_index: 14.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B1
+      name: Latin American Theoretical Informatics Symposium
+      count: 7
+    SOFSEM:
+      h5_index: null
+      core_rank: B
+      era_rank: B
+      qualis_rank: B1
+      name: Current Trends in Theory and Practice of Computer Science
+      count: 6
+    ICALP:
+      h5_index: 33.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A1
+      name: International Colloquium on Automata, Languages, and Programming
+      count: 6
+    CIAC:
+      h5_index: null
+      core_rank: C
+      era_rank: C
+      qualis_rank: null
+      name: International Conference on Algorithms and Complexity
+      count: 6
+    PODC:
+      h5_index: 29.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A1
+      name: ACM Symposium on Principles of Distributed Computing
+      count: 5
+    OPODIS:
+      h5_index: 15.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B2
+      name: International Conference on Principles of Distributed Systems
+      count: 5
+    COCOA:
+      h5_index: 9.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B4
+      name: Conference on Combinatorial Optimization and Applications
+      count: 5
+    CNSR:
+      count: 5
+    IPDPS:
+      h5_index: 40.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A
+      name: International Parallel & Distributed Processing Symposium
+      count: 5
+    DISC:
+      h5_index: 22.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A2
+      name: International Symposium on Distributed Computing
+      count: 4
+    ESA:
+      h5_index: 21.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A2
+      name: European Symposium on Algorithms
+      count: 4
+    WG:
+      h5_index: 13.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: B1
+      name: Workshop on Graph-Theoretic Concepts in Computer Science
+      count: 4
+    MFCS:
+      h5_index: 18.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: B1
+      name: International Symposium on Mathematical Foundations of Computer Science
+      count: 4
+    JCDCG:
+      count: 4
+    CCECE:
+      h5_index: 27.0
+      core_rank: null
+      era_rank: C
+      qualis_rank: null
+      name: Canadian Conference on Electrical and Computer Engineering
+      count: 3
+    FUN:
+      h5_index: null
+      core_rank: B
+      era_rank: B
+      qualis_rank: null
+      name: Conference on Fun with Algorithms
+      count: 3
+    ICORES:
+      h5_index: null
+      core_rank: C
+      era_rank: null
+      qualis_rank: null
+      name: International Conference on Operations Research and Enterprise Systems
+      count: 3
+    FPS:
+      count: 3
+    ICC:
+      h5_index: 75.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: A2
+      name: International Conference on Communications
+      count: 3
+    SPAA:
+      h5_index: 24.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A2
+      name: Symposium on Parallelism in Algorithms and Architectures
+      count: 3
+    WOWMOM:
+      h5_index: 26.0
+      core_rank: B
+      era_rank: A
+      qualis_rank: B3
+      name: IEEE International Symposium on a World of Wireless, Mobile and Multimedia
+        Networks
+      count: 3
+    ACSAC:
+      count: 3
+    STACS:
+      h5_index: 21.0
+      core_rank: A
+      era_rank: B
+      qualis_rank: A2
+      name: International Symposium on Theoretical Aspects of Computer Science
+      count: 3
+    SPDP:
+      count: 3
+    WDAG:
+      h5_index: 22.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A2
+      name: International Symposium on Distributed Computing
+      count: 3
+    SSS:
+      h5_index: null
+      core_rank: C
+      era_rank: C
+      qualis_rank: null
+      name: International Symposium on Stabilization, Safety, and Security of Distributed
+        Systems
+      count: 2
+    ADHOCNETS:
+      count: 2
+    AAIM:
+      count: 2
+    ICDCN:
+      h5_index: 5.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B4
+      name: International Conference on Distributed Computing and Networking
+      count: 2
+    COCOON:
+      h5_index: 12.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: B1
+      name: International Computing and Combinatorics Conference
+      count: 2
+    WAOA:
+      h5_index: null
+      core_rank: B
+      era_rank: B
+      qualis_rank: B4
+      name: Workshop on Approximation and Online Algorithms
+      count: 2
+    Wireless Days:
+      count: 2
+    ICDCS Workshops:
+      count: 2
+    TAMC:
+      h5_index: 9.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: null
+      name: ' Conference on Theory and Applications of Models of Computation'
+      count: 2
+    WiMob:
+      count: 2
+    MADNES:
+      count: 2
+    NDSS:
+      h5_index: 76.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A1
+      name: Usenix Network and Distributed System Security Symposium
+      count: 2
+    Euro-Par:
+      h5_index: 22.0
+      core_rank: B
+      era_rank: A
+      qualis_rank: A2
+      name: International European Conference on Parallel and Distributed Computing
+      count: 2
+    International Conference on Wireless Networks:
+      count: 2
+    Graph Drawing:
+      count: 2
+    ACDA:
+      count: 1
+    IWOCA:
+      h5_index: 10.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: null
+      name: International Workshop on Combinatorial Algorithms
+      count: 1
+    MeditCom:
+      count: 1
+    WALCOM:
+      h5_index: 12.0
+      core_rank: B
+      era_rank: C
+      qualis_rank: null
+      name: International Workshop on Algorithms and Computation
+      count: 1
+    QCE:
+      count: 1
+    GLOBECOM Workshops:
+      count: 1
+    INFOCOM Workshops:
+      count: 1
+    WUWNet:
+      count: 1
+    SENSORNETS:
+      count: 1
+    SmartGridComm:
+      count: 1
+    VTC Fall:
+      count: 1
+    FCT:
+      h5_index: null
+      core_rank: B
+      era_rank: A
+      qualis_rank: B2
+      name: International Symposium on Fundamentals of Computation Theory
+      count: 1
+    CSR:
+      count: 1
+    MASS:
+      h5_index: 18.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B1
+      name: International Conference on Mobile Ad-Hoc and Smart Systems
+      count: 1
+    WADS:
+      h5_index: 13.0
+      core_rank: B
+      era_rank: A
+      qualis_rank: B1
+      name: Algorithms and Data Structures Symposium
+      count: 1
+    CRiSIS:
+      count: 1
+    BIBE:
+      count: 1
+    AsiaCCS:
+      count: 1
+    CISDA:
+      count: 1
+    DPM/SETOP:
+      count: 1
+    MSN:
+      count: 1
+    DCOSS:
+      h5_index: 17.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: null
+      name: IEEE International Conference on Distributed Computing in Sensor Systems
+      count: 1
+    ITNG:
+      count: 1
+    AccessNets:
+      count: 1
+    Communications and Computer Networks:
+      count: 1
+    PerCom Workshops:
+      count: 1
+    TGC:
+      count: 1
+    HotSec:
+      count: 1
+    ACNS:
+      count: 1
+    Communications, Internet, and Information Technology:
+      count: 1
+    ICICS:
+      count: 1
+    ICWI:
+      count: 1
+    ICDCS:
+      h5_index: 45.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A1
+      name: International Conference on Distributed Computing Systems
+      count: 1
+    International Conference on Internet Computing:
+      count: 1
+    IFIP TCS:
+      count: 1
+    SODA:
+      h5_index: 57.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A1
+      name: Symposium on Discrete Algorithms
+      count: 1
+    HICSS:
+      count: 1
+    CP:
+      count: 1
+    Satisfiability Problem - Theory and Applications:
+      count: 1
+    ISTCS:
+      count: 1
+    STOC:
+      h5_index: 62.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A1
+      name: ACM Symposium on Theory of Computing
+      count: 1
+    CCS:
+      count: 1
+    SCG:
+      count: 1
+    AWOC:
+      count: 1
+    FSTTCS:
+      count: 1
+- name: Paola Flocchini
+  venue_gpa: 3.23
+  venues:
+    SIROCCO:
+      h5_index: null
+      core_rank: B
+      era_rank: B
+      qualis_rank: B2
+      name: Colloquium on Structural Information and Communication Complexity
+      count: 22
+    OPODIS:
+      h5_index: 15.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B2
+      name: International Conference on Principles of Distributed Systems
+      count: 11
+    IPDPS:
+      h5_index: 40.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A
+      name: International Parallel & Distributed Processing Symposium
+      count: 7
+    ICDCS:
+      h5_index: 45.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A1
+      name: International Conference on Distributed Computing Systems
+      count: 6
+    DISC:
+      h5_index: 22.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A2
+      name: International Symposium on Distributed Computing
+      count: 6
+    ISAAC:
+      h5_index: 14.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: B1
+      name: International Symposium on Algorithms and Computation
+      count: 5
+    FUN:
+      h5_index: null
+      core_rank: B
+      era_rank: B
+      qualis_rank: null
+      name: Conference on Fun with Algorithms
+      count: 5
+    Euro-Par:
+      h5_index: 22.0
+      core_rank: B
+      era_rank: A
+      qualis_rank: A2
+      name: International European Conference on Parallel and Distributed Computing
+      count: 4
+    PODC:
+      h5_index: 29.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A1
+      name: ACM Symposium on Principles of Distributed Computing
+      count: 4
+    IPDPS Workshops:
+      count: 3
+    ISNCC:
+      h5_index: 17.0
+      core_rank: C
+      era_rank: null
+      qualis_rank: null
+      name: International Symposium on Networks, Computers and Communications
+      count: 3
+    ICDCN:
+      h5_index: 5.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B4
+      name: International Conference on Distributed Computing and Networking
+      count: 3
+    SSS:
+      h5_index: null
+      core_rank: C
+      era_rank: C
+      qualis_rank: null
+      name: International Symposium on Stabilization, Safety, and Security of Distributed
+        Systems
+      count: 3
+    IFIP TCS:
+      count: 3
+    AICCSA:
+      h5_index: 18.0
+      core_rank: C
+      era_rank: C
+      qualis_rank: B1
+      name: International Conference on Computer Systems and Applications
+      count: 2
+    CIAC:
+      h5_index: null
+      core_rank: C
+      era_rank: C
+      qualis_rank: null
+      name: International Conference on Algorithms and Complexity
+      count: 2
+    ADHOC-NOW:
+      h5_index: null
+      core_rank: C
+      era_rank: B
+      qualis_rank: B1
+      name: International Conference on Ad Hoc Networks and Wireless
+      count: 2
+    WG:
+      h5_index: 13.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: B1
+      name: Workshop on Graph-Theoretic Concepts in Computer Science
+      count: 2
+    ICDCIT:
+      count: 2
+    ICALP:
+      h5_index: 33.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A1
+      name: International Colloquium on Automata, Languages, and Programming
+      count: 2
+    SPAA:
+      h5_index: 24.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A2
+      name: Symposium on Parallelism in Algorithms and Architectures
+      count: 2
+    WDAS:
+      count: 2
+    WDAG:
+      h5_index: 22.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A2
+      name: International Symposium on Distributed Computing
+      count: 1
+    ICARA:
+      h5_index: null
+      core_rank: null
+      era_rank: null
+      qualis_rank: null
+      name: International Conference on Automation, Robotics and Applications
+      count: 1
+    CCECE:
+      h5_index: 27.0
+      core_rank: null
+      era_rank: C
+      qualis_rank: null
+      name: Canadian Conference on Electrical and Computer Engineering
+      count: 1
+    CANDAR:
+      count: 1
+    IWCMC:
+      h5_index: 31.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B1
+      name: International   Wireless   Communications &   Mobile   Computing   Conference
+      count: 1
+    TAMC:
+      h5_index: 9.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: null
+      name: ' Conference on Theory and Applications of Models of Computation'
+      count: 1
+    CIT/IUCC/DASC/PICom:
+      count: 1
+    ASONAM:
+      h5_index: 34.0
+      core_rank: null
+      era_rank: null
+      qualis_rank: B4
+      name: International Conference on Advances in Social Networks Analysis and Mining
+      count: 1
+    WorldCIST:
+      count: 1
+    CCCG:
+      h5_index: 8.0
+      core_rank: B
+      era_rank: C
+      qualis_rank: B2
+      name: The Canadian Conference on Computational Geometry
+      count: 1
+    FCT:
+      h5_index: null
+      core_rank: B
+      era_rank: A
+      qualis_rank: B2
+      name: International Symposium on Fundamentals of Computation Theory
+      count: 1
+    AUTOMATA &amp; JAC:
+      count: 1
+    CASoN:
+      count: 1
+    ACRI:
+      count: 1
+    COCOA:
+      h5_index: 9.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B4
+      name: Conference on Combinatorial Optimization and Applications
+      count: 1
+    ACIS-ICIS:
+      count: 1
+    ALGOSENSORS:
+      h5_index: null
+      core_rank: C
+      era_rank: C
+      qualis_rank: B3
+      name: Algorithmic Aspects of Wireless Sensor Networks
+      count: 1
+    Communications in Computing:
+      count: 1
+    PDPTA:
+      h5_index: 6.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B2
+      name: International Conference on Parallel and Distributed Processing Techniques
+        and Applications
+      count: 1
+    LATIN:
+      h5_index: 14.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B1
+      name: Latin American Theoretical Informatics Symposium
+      count: 1
+    ICC:
+      h5_index: 75.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: A2
+      name: International Conference on Communications
+      count: 1
+    STACS:
+      h5_index: 21.0
+      core_rank: A
+      era_rank: B
+      qualis_rank: A2
+      name: International Symposium on Theoretical Aspects of Computer Science
+      count: 1
+- name: Nicola Santoro
+  venue_gpa: 3.32
+  venues:
+    SIROCCO:
+      h5_index: null
+      core_rank: B
+      era_rank: B
+      qualis_rank: B2
+      name: Colloquium on Structural Information and Communication Complexity
+      count: 24
+    OPODIS:
+      h5_index: 15.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B2
+      name: International Conference on Principles of Distributed Systems
+      count: 14
+    DISC:
+      h5_index: 22.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A2
+      name: International Symposium on Distributed Computing
+      count: 10
+    ICDCS:
+      h5_index: 45.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A1
+      name: International Conference on Distributed Computing Systems
+      count: 8
+    WG:
+      h5_index: 13.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: B1
+      name: Workshop on Graph-Theoretic Concepts in Computer Science
+      count: 7
+    PODC:
+      h5_index: 29.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A1
+      name: ACM Symposium on Principles of Distributed Computing
+      count: 6
+    ISAAC:
+      h5_index: 14.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: B1
+      name: International Symposium on Algorithms and Computation
+      count: 6
+    IPDPS:
+      h5_index: 40.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A
+      name: International Parallel & Distributed Processing Symposium
+      count: 6
+    STACS:
+      h5_index: 21.0
+      core_rank: A
+      era_rank: B
+      qualis_rank: A2
+      name: International Symposium on Theoretical Aspects of Computer Science
+      count: 6
+    FUN:
+      h5_index: null
+      core_rank: B
+      era_rank: B
+      qualis_rank: null
+      name: Conference on Fun with Algorithms
+      count: 5
+    IFIP TCS:
+      count: 5
+    Euro-Par:
+      h5_index: 22.0
+      core_rank: B
+      era_rank: A
+      qualis_rank: A2
+      name: International European Conference on Parallel and Distributed Computing
+      count: 4
+    CIAC:
+      h5_index: null
+      core_rank: C
+      era_rank: C
+      qualis_rank: null
+      name: International Conference on Algorithms and Complexity
+      count: 4
+    IPDPS Workshops:
+      count: 3
+    ICDCN:
+      h5_index: 5.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B4
+      name: International Conference on Distributed Computing and Networking
+      count: 3
+    SSS:
+      h5_index: null
+      core_rank: C
+      era_rank: C
+      qualis_rank: null
+      name: International Symposium on Stabilization, Safety, and Security of Distributed
+        Systems
+      count: 3
+    ALGOSENSORS:
+      h5_index: null
+      core_rank: C
+      era_rank: C
+      qualis_rank: B3
+      name: Algorithmic Aspects of Wireless Sensor Networks
+      count: 3
+    MSN:
+      count: 3
+    ICALP:
+      h5_index: 33.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A1
+      name: International Colloquium on Automata, Languages, and Programming
+      count: 3
+    WDAG:
+      h5_index: 22.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A2
+      name: International Symposium on Distributed Computing
+      count: 3
+    ICARA:
+      h5_index: null
+      core_rank: null
+      era_rank: null
+      qualis_rank: null
+      name: International Conference on Automation, Robotics and Applications
+      count: 2
+    AICCSA:
+      h5_index: 18.0
+      core_rank: C
+      era_rank: C
+      qualis_rank: B1
+      name: International Conference on Computer Systems and Applications
+      count: 2
+    CANDAR:
+      count: 2
+    MATA:
+      count: 2
+    SPAA:
+      h5_index: 24.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A2
+      name: Symposium on Parallelism in Algorithms and Architectures
+      count: 2
+    WDAS:
+      count: 2
+    FTCS:
+      count: 2
+    ICPP:
+      count: 2
+    I2MTC:
+      count: 1
+    ISNCC:
+      h5_index: 17.0
+      core_rank: C
+      era_rank: null
+      qualis_rank: null
+      name: International Symposium on Networks, Computers and Communications
+      count: 1
+    TPNC:
+      count: 1
+    CHI:
+      count: 1
+    SmartWorld/SCALCOM/UIC/ATC/CBDCom/IOP/SCI:
+      count: 1
+    IWCMC:
+      h5_index: 31.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B1
+      name: International   Wireless   Communications &   Mobile   Computing   Conference
+      count: 1
+    CICC:
+      count: 1
+    TAMC:
+      h5_index: 9.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: null
+      name: ' Conference on Theory and Applications of Models of Computation'
+      count: 1
+    CIT/IUCC/DASC/PICom:
+      count: 1
+    WorldCIST:
+      count: 1
+    CCCG:
+      h5_index: 8.0
+      core_rank: B
+      era_rank: C
+      qualis_rank: B2
+      name: The Canadian Conference on Computational Geometry
+      count: 1
+    ICPADS:
+      h5_index: 20.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B1
+      name: IEEE International Conference on Parallel and Distributed Systems
+      count: 1
+    FCT:
+      h5_index: null
+      core_rank: B
+      era_rank: A
+      qualis_rank: B2
+      name: International Symposium on Fundamentals of Computation Theory
+      count: 1
+    WALCOM:
+      h5_index: 12.0
+      core_rank: B
+      era_rank: C
+      qualis_rank: null
+      name: International Workshop on Algorithms and Computation
+      count: 1
+    ADHOC-NOW:
+      h5_index: null
+      core_rank: C
+      era_rank: B
+      qualis_rank: B1
+      name: International Conference on Ad Hoc Networks and Wireless
+      count: 1
+    ADHOCNETS:
+      count: 1
+    CASoN:
+      count: 1
+    LPNMR:
+      count: 1
+    COCOA:
+      h5_index: 9.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B4
+      name: Conference on Combinatorial Optimization and Applications
+      count: 1
+    S-CUBE:
+      count: 1
+    ICC:
+      h5_index: 75.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: A2
+      name: International Conference on Communications
+      count: 1
+    MASS:
+      h5_index: 18.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B1
+      name: International Conference on Mobile Ad-Hoc and Smart Systems
+      count: 1
+    MCETECH:
+      count: 1
+    FOWANC:
+      count: 1
+    UIC:
+      count: 1
+    ACIS-ICIS:
+      count: 1
+    LCN:
+      count: 1
+    OTM Workshops:
+      count: 1
+    Parallel and Distributed Computing and Networks:
+      count: 1
+    ICTCS:
+      h5_index: 7.0
+      core_rank: null
+      era_rank: C
+      qualis_rank: null
+      name: Italian Conference on Theoretical Computer Science
+      count: 1
+    IAT:
+      count: 1
+    LATIN:
+      h5_index: 14.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B1
+      name: Latin American Theoretical Informatics Symposium
+      count: 1
+    SOFSEM:
+      h5_index: null
+      core_rank: B
+      era_rank: B
+      qualis_rank: B1
+      name: Current Trends in Theory and Practice of Computer Science
+      count: 1
+    AVI:
+      count: 1
+    IV:
+      count: 1
+    ISPAN:
+      count: 1
+    HICSS:
+      count: 1
+    ICCI:
+      count: 1
+    IPPS:
+      count: 1
+    SIGAL International Symposium on Algorithms:
+      count: 1
+    PARLE:
+      count: 1
+    Aegean Workshop on Computing:
+      count: 1
+    Berkeley Workshop:
+      count: 1
+- name: Leszek Gasieniec
+  venue_gpa: 3.56
+  venues:
+    DISC:
+      h5_index: 22.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A2
+      name: International Symposium on Distributed Computing
+      count: 11
+    CPM:
+      count: 11
+    SIROCCO:
+      h5_index: null
+      core_rank: B
+      era_rank: B
+      qualis_rank: B2
+      name: Colloquium on Structural Information and Communication Complexity
+      count: 8
+    ICALP:
+      h5_index: 33.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A1
+      name: International Colloquium on Automata, Languages, and Programming
+      count: 8
+    PODC:
+      h5_index: 29.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A1
+      name: ACM Symposium on Principles of Distributed Computing
+      count: 6
+    SOFSEM:
+      h5_index: null
+      core_rank: B
+      era_rank: B
+      qualis_rank: B1
+      name: Current Trends in Theory and Practice of Computer Science
+      count: 6
+    SODA:
+      h5_index: 57.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A1
+      name: Symposium on Discrete Algorithms
+      count: 6
+    SWAT:
+      h5_index: null
+      core_rank: B
+      era_rank: B
+      qualis_rank: B1
+      name: Scandinavian Symposium and Workshops on Algorithm Theory
+      count: 4
+    OPODIS:
+      h5_index: 15.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B2
+      name: International Conference on Principles of Distributed Systems
+      count: 4
+    SPAA:
+      h5_index: 24.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A2
+      name: Symposium on Parallelism in Algorithms and Architectures
+      count: 4
+    MFCS:
+      h5_index: 18.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: B1
+      name: International Symposium on Mathematical Foundations of Computer Science
+      count: 4
+    ESA:
+      h5_index: 21.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A2
+      name: European Symposium on Algorithms
+      count: 4
+    FOCS:
+      h5_index: 52.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A1
+      name: Symposium on Foundations of Computer Science
+      count: 3
+    ISAAC:
+      h5_index: 14.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: B1
+      name: International Symposium on Algorithms and Computation
+      count: 3
+    WADS:
+      h5_index: 13.0
+      core_rank: B
+      era_rank: A
+      qualis_rank: B1
+      name: Algorithms and Data Structures Symposium
+      count: 3
+    STACS:
+      h5_index: 21.0
+      core_rank: A
+      era_rank: B
+      qualis_rank: A2
+      name: International Symposium on Theoretical Aspects of Computer Science
+      count: 3
+    CIAC:
+      h5_index: null
+      core_rank: C
+      era_rank: C
+      qualis_rank: null
+      name: International Conference on Algorithms and Complexity
+      count: 2
+    SSS:
+      h5_index: null
+      core_rank: C
+      era_rank: C
+      qualis_rank: null
+      name: International Symposium on Stabilization, Safety, and Security of Distributed
+        Systems
+      count: 2
+    LATIN:
+      h5_index: 14.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B1
+      name: Latin American Theoretical Informatics Symposium
+      count: 2
+    COCOON:
+      h5_index: 12.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: B1
+      name: International Computing and Combinatorics Conference
+      count: 2
+    FCT:
+      h5_index: null
+      core_rank: B
+      era_rank: A
+      qualis_rank: B2
+      name: International Symposium on Fundamentals of Computation Theory
+      count: 2
+    ALENEX:
+      count: 1
+    FAW:
+      count: 1
+    Graph Drawing:
+      count: 1
+    CIT/IUCC/DASC/PICom:
+      count: 1
+    ICDCS:
+      h5_index: 45.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A1
+      name: International Conference on Distributed Computing Systems
+      count: 1
+    WAOA:
+      h5_index: null
+      core_rank: B
+      era_rank: B
+      qualis_rank: B4
+      name: Workshop on Approximation and Online Algorithms
+      count: 1
+    ALGOSENSORS:
+      h5_index: null
+      core_rank: C
+      era_rank: C
+      qualis_rank: B3
+      name: Algorithmic Aspects of Wireless Sensor Networks
+      count: 1
+    COCOA:
+      h5_index: 9.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B4
+      name: Conference on Combinatorial Optimization and Applications
+      count: 1
+    FSTTCS:
+      count: 1
+    WG:
+      h5_index: 13.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: B1
+      name: Workshop on Graph-Theoretic Concepts in Computer Science
+      count: 1
+    CIBCB:
+      count: 1
+    DCC:
+      count: 1
+    IPDPS:
+      h5_index: 40.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A
+      name: International Parallel & Distributed Processing Symposium
+      count: 1
+    IFIP TCS:
+      count: 1
+    DIAL-M:
+      count: 1
+    CCCG:
+      h5_index: 8.0
+      core_rank: B
+      era_rank: C
+      qualis_rank: B2
+      name: The Canadian Conference on Computational Geometry
+      count: 1
+    Data Compression Conference:
+      count: 1
+    CATS:
+      count: 1
+    SEQUENCES:
+      count: 1
+    WAE:
+      count: 1
+    STOC:
+      h5_index: 62.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A1
+      name: ACM Symposium on Theory of Computing
+      count: 1
+- name: Jurek Czyzowicz
+  venue_gpa: 3.18
+  venues:
+    SIROCCO:
+      h5_index: null
+      core_rank: B
+      era_rank: B
+      qualis_rank: B2
+      name: Colloquium on Structural Information and Communication Complexity
+      count: 15
+    CCCG:
+      h5_index: 8.0
+      core_rank: B
+      era_rank: C
+      qualis_rank: B2
+      name: The Canadian Conference on Computational Geometry
+      count: 14
+    DISC:
+      h5_index: 22.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A2
+      name: International Symposium on Distributed Computing
+      count: 6
+    ICALP:
+      h5_index: 33.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A1
+      name: International Colloquium on Automata, Languages, and Programming
+      count: 5
+    ALGOSENSORS:
+      h5_index: null
+      core_rank: C
+      era_rank: C
+      qualis_rank: B3
+      name: Algorithmic Aspects of Wireless Sensor Networks
+      count: 5
+    ISAAC:
+      h5_index: 14.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: B1
+      name: International Symposium on Algorithms and Computation
+      count: 4
+    ESA:
+      h5_index: 21.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A2
+      name: European Symposium on Algorithms
+      count: 4
+    OPODIS:
+      h5_index: 15.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B2
+      name: International Conference on Principles of Distributed Systems
+      count: 4
+    SODA:
+      h5_index: 57.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A1
+      name: Symposium on Discrete Algorithms
+      count: 4
+    CIAA:
+      count: 4
+    PODC:
+      h5_index: 29.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A1
+      name: ACM Symposium on Principles of Distributed Computing
+      count: 3
+    SOFSEM:
+      h5_index: null
+      core_rank: B
+      era_rank: B
+      qualis_rank: B1
+      name: Current Trends in Theory and Practice of Computer Science
+      count: 3
+    CIAC:
+      h5_index: null
+      core_rank: C
+      era_rank: C
+      qualis_rank: null
+      name: International Conference on Algorithms and Complexity
+      count: 3
+    ADHOC-NOW:
+      h5_index: null
+      core_rank: C
+      era_rank: B
+      qualis_rank: B1
+      name: International Conference on Ad Hoc Networks and Wireless
+      count: 3
+    LATIN:
+      h5_index: 14.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B1
+      name: Latin American Theoretical Informatics Symposium
+      count: 3
+    WADS:
+      h5_index: 13.0
+      core_rank: B
+      era_rank: A
+      qualis_rank: B1
+      name: Algorithms and Data Structures Symposium
+      count: 3
+    ICORES:
+      h5_index: null
+      core_rank: C
+      era_rank: null
+      qualis_rank: null
+      name: International Conference on Operations Research and Enterprise Systems
+      count: 2
+    SPAA:
+      h5_index: 24.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A2
+      name: Symposium on Parallelism in Algorithms and Architectures
+      count: 2
+    SWAT:
+      h5_index: null
+      core_rank: B
+      era_rank: B
+      qualis_rank: B1
+      name: Scandinavian Symposium and Workshops on Algorithm Theory
+      count: 2
+    SCG:
+      count: 2
+    JCDCG:
+      count: 2
+    ACDA:
+      count: 1
+    WALCOM:
+      h5_index: 12.0
+      core_rank: B
+      era_rank: C
+      qualis_rank: null
+      name: International Workshop on Algorithms and Computation
+      count: 1
+    FUN:
+      h5_index: null
+      core_rank: B
+      era_rank: B
+      qualis_rank: null
+      name: Conference on Fun with Algorithms
+      count: 1
+    FPS:
+      count: 1
+    ICDCN:
+      h5_index: 5.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B4
+      name: International Conference on Distributed Computing and Networking
+      count: 1
+    WAOA:
+      h5_index: null
+      core_rank: B
+      era_rank: B
+      qualis_rank: B4
+      name: Workshop on Approximation and Online Algorithms
+      count: 1
+    MFCS:
+      h5_index: 18.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: B1
+      name: International Symposium on Mathematical Foundations of Computer Science
+      count: 1
+    TAMC:
+      h5_index: 9.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: null
+      name: ' Conference on Theory and Applications of Models of Computation'
+      count: 1
+    Developments in Language Theory:
+      count: 1
+    COCOON:
+      h5_index: 12.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: B1
+      name: International Computing and Combinatorics Conference
+      count: 1
+    Graph Drawing:
+      count: 1
+    WG:
+      h5_index: 13.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: B1
+      name: Workshop on Graph-Theoretic Concepts in Computer Science
+      count: 1
+- name: John Reif
+  venue_gpa: 3.94
+  venues:
+    DNA:
+      count: 20
+    FOCS:
+      h5_index: 52.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A1
+      name: Symposium on Foundations of Computer Science
+      count: 19
+    STOC:
+      h5_index: 62.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A1
+      name: ACM Symposium on Theory of Computing
+      count: 15
+    ICALP:
+      h5_index: 33.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A1
+      name: International Colloquium on Automata, Languages, and Programming
+      count: 10
+    Data Compression Conference:
+      count: 9
+    SPAA:
+      h5_index: 24.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A2
+      name: Symposium on Parallelism in Algorithms and Architectures
+      count: 9
+    POPL:
+      count: 5
+    FCT:
+      h5_index: null
+      core_rank: B
+      era_rank: A
+      qualis_rank: B2
+      name: International Symposium on Fundamentals of Computation Theory
+      count: 4
+    ICRA:
+      count: 3
+    DNA Based Computers:
+      count: 3
+    FSTTCS:
+      count: 3
+    IPPS:
+      count: 3
+    SODA:
+      h5_index: 57.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A1
+      name: Symposium on Discrete Algorithms
+      count: 3
+    SCG:
+      count: 2
+    WAFR:
+      count: 2
+    WADS:
+      h5_index: 13.0
+      core_rank: B
+      era_rank: A
+      qualis_rank: B1
+      name: Algorithms and Data Structures Symposium
+      count: 2
+    DNA Computing:
+      count: 2
+    SPDP:
+      count: 2
+    ISSCC:
+      count: 1
+    ICWS:
+      count: 1
+    AMCIS:
+      count: 1
+    FIE:
+      count: 1
+    ICCABS:
+      count: 1
+    Algorithmic Bioprocesses:
+      count: 1
+    UC:
+      count: 1
+    CP:
+      count: 1
+    IFIP Int. Conf. Digital Forensics:
+      count: 1
+    Robotics - Science and Systems:
+      count: 1
+    WoLLIC:
+      count: 1
+    Nanotechnology - Science and Computation:
+      count: 1
+    Aspects of Molecular Computing:
+      count: 1
+    UPP:
+      count: 1
+    Verification - Theory and Practice:
+      count: 1
+    CHI:
+      count: 1
+    ISAAC:
+      h5_index: 14.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: B1
+      name: International Symposium on Algorithms and Computation
+      count: 1
+    Euro-Par, Vol. I:
+      count: 1
+    ICPP, Vol. 2:
+      count: 1
+    HICSS:
+      count: 1
+    Parallel and Distributed Computing and Systems:
+      count: 1
+    VRAIS:
+      count: 1
+    Specification of Parallel Algorithms:
+      count: 1
+    COLT:
+      count: 1
+    IFIP Congress:
+      count: 1
+    Optimal Algorithms:
+      count: 1
+    MFCS:
+      h5_index: 18.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: B1
+      name: International Symposium on Mathematical Foundations of Computer Science
+      count: 1
+    Computational Complexity Conference:
+      count: 1
+    ICPP:
+      count: 1
+    Aegean Workshop on Computing:
+      count: 1
+    TARK:
+      count: 1
+    CRYPTO:
+      count: 1
+    Logic of Programs:
+      count: 1
+    PODC:
+      h5_index: 29.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A1
+      name: ACM Symposium on Principles of Distributed Computing
+      count: 1
+- name: Andrea De Salve
+  venue_gpa: 2.67
+  venues:
+    GOODTECHS:
+      count: 3
+    ICBTA:
+      h5_index: null
+      core_rank: null
+      era_rank: null
+      qualis_rank: null
+      name: International Conference on Blockchain Technologies and Applications
+      count: 2
+    Euro-Par Workshops:
+      count: 2
+    WETICE:
+      count: 1
+    GECON:
+      count: 1
+    ASONAM:
+      h5_index: 34.0
+      core_rank: null
+      era_rank: null
+      qualis_rank: B4
+      name: International Conference on Advances in Social Networks Analysis and Mining
+      count: 1
+    GPC:
+      count: 1
+    PAP@PKDD/ECML:
+      count: 1
+    SYNASC:
+      count: 1
+    DAIS:
+      h5_index: null
+      core_rank: C
+      era_rank: B
+      qualis_rank: B2
+      name: International Conference on Distributed Applications and Interoperable
+        Systems
+      count: 1
+    ISCC:
+      h5_index: 26.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: A2
+      name: IEEE Symposium on Computers and Communications
+      count: 1
+    UIC/ATC/ScalCom/CBDCom/IoP/SmartWorld:
+      count: 1
+    DEXA:
+      count: 1
+    OTM Conferences:
+      count: 1
+    EuroMed:
+      count: 1
+    VAST:
+      count: 1
+- name: Laura Ricci
+  venue_gpa: 3.08
+  venues:
+    Euro-Par Workshops:
+      count: 8
+    HPCS:
+      h5_index: 18.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B3
+      name: International Conference on High Performance Computing and Simulation
+      count: 5
+    ISCC:
+      h5_index: 26.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: A2
+      name: IEEE Symposium on Computers and Communications
+      count: 5
+    GOODTECHS:
+      count: 4
+    CCNC:
+      count: 3
+    EMBC:
+      count: 3
+    DAIS:
+      h5_index: null
+      core_rank: C
+      era_rank: B
+      qualis_rank: B2
+      name: International Conference on Distributed Applications and Interoperable
+        Systems
+      count: 3
+    ICUMT:
+      count: 3
+    OTM Workshops:
+      count: 3
+    PDP:
+      count: 3
+    CinC:
+      count: 2
+    HT:
+      count: 2
+    SAC:
+      count: 2
+    COMPSAC:
+      count: 2
+    ICBTA:
+      h5_index: null
+      core_rank: null
+      era_rank: null
+      qualis_rank: null
+      name: International Conference on Blockchain Technologies and Applications
+      count: 2
+    AINA:
+      h5_index: 26.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: A2
+      name: International Conference on Advanced Information Networking and Applications
+      count: 2
+    GECON:
+      count: 2
+    COMPLEX NETWORKS:
+      count: 2
+    PARCO:
+      count: 2
+    CBMS:
+      count: 2
+    PerCom Workshops:
+      count: 2
+    P2P:
+      count: 2
+    CIT:
+      count: 2
+    NETGAMES:
+      count: 2
+    PDPTA:
+      h5_index: 6.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B2
+      name: International Conference on Parallel and Distributed Processing Techniques
+        and Applications
+      count: 2
+    HPDC:
+      count: 2
+    PARA:
+      count: 2
+    HPCN Europe:
+      count: 2
+    PVM/MPI:
+      count: 2
+    WebSci:
+      count: 1
+    GoodIT:
+      count: 1
+    DICG@Middleware:
+      count: 1
+    ECML/PKDD:
+      count: 1
+    WETICE:
+      count: 1
+    GCAIoT:
+      count: 1
+    IDCS:
+      count: 1
+    DoCEIS:
+      count: 1
+    IoTSMS:
+      count: 1
+    IGARSS:
+      count: 1
+    iThings/GreenCom/CPSCom/SmartData:
+      count: 1
+    GBCIC:
+      count: 1
+    GPC:
+      count: 1
+    ICNSC:
+      count: 1
+    PAP@PKDD/ECML:
+      count: 1
+    SYNASC:
+      count: 1
+    DSAA:
+      count: 1
+    ICA3PP:
+      count: 1
+    UIC/ATC/ScalCom/CBDCom/IoP/SmartWorld:
+      count: 1
+    IEEE BigData:
+      count: 1
+    DEXA:
+      count: 1
+    LCN:
+      count: 1
+    SASO:
+      count: 1
+    MoWNet:
+      count: 1
+    OTM Conferences:
+      count: 1
+    DCNET/ICE-B/OPTICS:
+      count: 1
+    ICETE:
+      count: 1
+    IWCMC:
+      h5_index: 31.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B1
+      name: International   Wireless   Communications &   Mobile   Computing   Conference
+      count: 1
+    WOWMOM:
+      h5_index: 26.0
+      core_rank: B
+      era_rank: A
+      qualis_rank: B3
+      name: IEEE International Symposium on a World of Wireless, Mobile and Multimedia
+        Networks
+      count: 1
+    NetGames:
+      count: 1
+    NEW2AN:
+      count: 1
+    SimuTools:
+      count: 1
+    Peer-to-Peer Computing:
+      count: 1
+    SEBD:
+      count: 1
+    CollaborateCom:
+      count: 1
+    CSE:
+      count: 1
+    CoreGRID@Euro-Par:
+      count: 1
+    CoNEXT:
+      count: 1
+    CoreGRID Workshop - Making Grids Work:
+      count: 1
+    SC:
+      count: 1
+    Parallel and Distributed Computing and Networks:
+      count: 1
+    ISBMDA:
+      count: 1
+    International Conference on Computational Science:
+      count: 1
+    PARELEC:
+      count: 1
+    CCGRID:
+      count: 1
+    Euro-Par:
+      h5_index: 22.0
+      core_rank: B
+      era_rank: A
+      qualis_rank: A2
+      name: International European Conference on Parallel and Distributed Computing
+      count: 1
+    PaCT:
+      count: 1
+    ESOP:
+      count: 1
+    ICLP:
+      count: 1
+    SIGPLAN Symposium on Compiler Construction:
+      count: 1
+    Symposium on Reliability in Distributed Software and Database Systems:
+      count: 1
+- name: Bhaskar Krishnamachari
+  venue_gpa: 3.57
+  venues:
+    INFOCOM:
+      h5_index: 70.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A1
+      name: IEEE International Conference on Computer Communications
+      count: 14
+    SECON:
+      h5_index: 25.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B1
+      name: International Conference on Sensing, Communication, and Networking
+      count: 13
+    GLOBECOM:
+      h5_index: null
+      core_rank: B
+      era_rank: B
+      qualis_rank: A1
+      name: IEEE Global Communications Conference
+      count: 12
+    IPSN:
+      h5_index: 27.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A1
+      name: International Conference on Information Processing in Sensor Networks
+      count: 8
+    IEEE ICBC:
+      h5_index: 15.0
+      core_rank: null
+      era_rank: null
+      qualis_rank: null
+      name: IEEE International Conference on Blockchain and Cryptocurrency
+      count: 8
+    WiOpt:
+      count: 8
+    MASS:
+      h5_index: 18.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: B1
+      name: International Conference on Mobile Ad-Hoc and Smart Systems
+      count: 7
+    SenSys:
+      h5_index: 31.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A1
+      name: ACM Conference on Embedded Networked Sensor Systems
+      count: 6
+    DCOSS:
+      h5_index: 17.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: null
+      name: IEEE International Conference on Distributed Computing in Sensor Systems
+      count: 6
+    ITA:
+      count: 6
+    ICC:
+      h5_index: 75.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: A2
+      name: International Conference on Communications
+      count: 6
+    MobiSys:
+      h5_index: 39.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: A1
+      name: International Conference on Mobile Systems, Applications, and Services
+      count: 4
+    MSWiM:
+      h5_index: 17.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: B1
+      name: International Conference on Modeling, Analysis and Simulation of Wireless
+        and Mobile Systems
+      count: 4
+    COMSNETS:
+      h5_index: 21.0
+      core_rank: null
+      era_rank: null
+      qualis_rank: null
+      name: International Conference on Communication Systems & Networks
+      count: 3
+    ICCCN:
+      h5_index: 28.0
+      core_rank: B
+      era_rank: null
+      qualis_rank: B1
+      name: International Conference on Computer Communications and Networks
+      count: 3
+    MILCOM:
+      count: 3
+    EWSN:
+      count: 3
+    IROS:
+      h5_index: 73.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A1
+      name: International Conference on Intelligent Robots and Systems
+      count: 3
+    GLOBECOM Workshops:
+      count: 3
+    ACC:
+      count: 3
+    IPCCC:
+      count: 3
+    AAMAS:
+      h5_index: 44.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A1
+      name: International Conference on Autonomous Agents and Multiagent Systems
+      count: 2
+    FAB:
+      h5_index: null
+      core_rank: null
+      era_rank: null
+      qualis_rank: null
+      name: International Symposium on Foundations and Applications of Blockchain
+      count: 2
+    VNC:
+      count: 2
+    Blockchain:
+      h5_index: 17.0
+      core_rank: null
+      era_rank: null
+      qualis_rank: null
+      name: IEEE International Conference on Blockchain
+      count: 2
+    HICSS:
+      count: 2
+    IoTDI:
+      h5_index: 28.0
+      core_rank: null
+      era_rank: null
+      qualis_rank: null
+      name: ACM International Conference on Internet-of-Things Design and Implementation
+      count: 2
+    ISC2:
+      count: 2
+    ICNC:
+      count: 2
+    iThings/GreenCom/CPSCom/SmartData:
+      count: 2
+    ACSSC:
+      count: 2
+    WCNC:
+      count: 2
+    Vehicular Ad Hoc Networks:
+      count: 2
+    WICON:
+      count: 2
+    MobiHoc:
+      h5_index: 25.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: A1
+      name: ACM Symposium of Mobile and Ad Hoc Computing
+      count: 2
+    ICDCS Workshops:
+      count: 2
+    CP:
+      count: 2
+    AAAI:
+      h5_index: 157.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A1
+      name: National Conference of the American Association for Artificial Intelligence
+      count: 1
+    ICBC:
+      h5_index: 15.0
+      core_rank: null
+      era_rank: null
+      qualis_rank: null
+      name: IEEE International Conference on Blockchain and Cryptocurrency
+      count: 1
+    IEEE BigData:
+      count: 1
+    ICC Workshops:
+      count: 1
+    IM:
+      count: 1
+    UCC Companion:
+      count: 1
+    UR:
+      count: 1
+    CCWC:
+      count: 1
+    CHASE:
+      count: 1
+    COVID@SIGSPATIAL:
+      count: 1
+    SDS:
+      count: 1
+    BigMM:
+      count: 1
+    HotEdge:
+      count: 1
+    INFOCOM Workshops:
+      count: 1
+    WOC@Middleware:
+      count: 1
+    MobileCloud:
+      count: 1
+    ISIT:
+      count: 1
+    ITC:
+      count: 1
+    SEC:
+      count: 1
+    HotWireless@MOBICOM:
+      count: 1
+    UrbanGIS@SIGSPATIAL:
+      count: 1
+    SIGSPATIAL/GIS:
+      count: 1
+    ISCC:
+      h5_index: 26.0
+      core_rank: B
+      era_rank: B
+      qualis_rank: A2
+      name: IEEE Symposium on Computers and Communications
+      count: 1
+    BuildSys@SenSys:
+      count: 1
+    CDC:
+      h5_index: 42.0
+      core_rank: A
+      era_rank: A
+      qualis_rank: B1
+      name: IEEE Conference on Decision and Control
+      count: 1
+    GAMENETS:
+      count: 1
+    VTC Spring:
+      count: 1
+    WINE:
+      count: 1
+    Allerton:
+      count: 1
+    ICASSP:
+      count: 1
+    MobiCom:
+      h5_index: 45.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A1
+      name: Annual International Conference On Mobile Computing And Networking
+      count: 1
+    SUTC/UMC:
+      count: 1
+    GSN:
+      count: 1
+    MobiCASE:
+      count: 1
+    SNA:
+      count: 1
+    WUWNet:
+      count: 1
+    CCNC:
+      count: 1
+    ICVES:
+      count: 1
+    MobilityModels:
+      count: 1
+    CrownCom:
+      count: 1
+    Underwater Networks:
+      count: 1
+    MobiDE:
+      count: 1
+    Mobile Data Management:
+      count: 1
+    DEXA Workshops:
+      count: 1
+    IPDPS:
+      h5_index: 40.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A
+      name: International Parallel & Distributed Processing Symposium
+      count: 1
+    LCN:
+      count: 1
+    STOC:
+      h5_index: 62.0
+      core_rank: A*
+      era_rank: A
+      qualis_rank: A1
+      name: ACM Symposium on Theory of Computing
+      count: 1
+    VTC Fall:
+      count: 1
