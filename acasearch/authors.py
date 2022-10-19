@@ -1,15 +1,16 @@
 import argparse
 import logging
 import pathlib
+import time
 from copy import deepcopy
 from functools import lru_cache
-import time
 from typing import Any, Dict, Optional, Set
 
 import numpy as np
 import pandas as pd
 import requests
 import yaml
+
 from acasearch.conferences import load_data
 
 logging.getLogger().setLevel(logging.INFO)
