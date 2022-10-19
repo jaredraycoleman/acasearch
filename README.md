@@ -27,7 +27,7 @@ optional arguments:
   --upcoming  If set, sort by upcoming deadline before ranking
 
 ### acasearch conferences get
-usage: gen_readme.py conferences get [-h] CONFERENCE ABBREVIATION ATTRIBUTE
+usage: gen_readme.py conferences get [-h] CONFERENCE ABBREVIATION [ATTRIBUTE]
 
 positional arguments:
   CONFERENCE ABBREVIATION
@@ -47,10 +47,11 @@ positional arguments:
                         IPCO, ITCS, PDPTA, CONTROLO, SSS, NEURIPS, RTSS, SODA,
                         SoCG, CCCG, ICEBE, MOBISYS, ANTS, ICC, CIKM, ROBIO,
                         ICWSM/A, ICWSM/B, ICWSM/C, eScience, AISI, AICCSA,
-                        BDIoT, ISCC, HPCS, ICBTA, DAIS, ICICT]
+                        BDIoT, ISCC, HPCS, ICBTA, DAIS, ICICT, COCOON,
+                        COORDINATION, FORTE, ICORES]
   ATTRIBUTE             Conference attribute to get - one of: [conference,
                         h5_index, core_rank, era_rank, qualis_rank,
-                        last_deadline, name, topics]
+                        last_deadline, name, topics, None]
 
 optional arguments:
   -h, --help            show this help message and exit
