@@ -85,12 +85,20 @@ def search_command(args: argparse.Namespace) -> None:
 
 def get_command(args: argparse.Namespace) -> None:
     df = load_data()
-    data = df.set_index("conference").loc[args.conference,args.column]
-    if args.column == "topics":
-        data = "\n".join(data.split(" // "))
-    elif args.column == "last_deadline":
-        data = data.strftime("%B %d")
-    print(data)
+    if args.column is None:
+        data = df[df["conference"] == args.conference].T
+        topics = "\t" + "\n\t".join(data.loc["topics"].values[0].split(" // "))
+        columns = ["conference", "name", "core_rank", "era_rank", "qualis_rank", "h5_index", "last_deadline"]
+        data = data.loc[columns]
+        print(data.to_string(header=False))
+        print(f"topics {topics}")
+    else:
+        data = df.set_index("conference").loc[args.conference,args.column]
+        if args.column == "topics":
+            data = "\n".join(data.split(" // "))
+        elif args.column == "last_deadline":
+            data = data.strftime("%B %d")
+        print(data)
 
 
 def get_parser(parser: Optional[argparse.ArgumentParser] = None) -> argparse.ArgumentParser:
@@ -112,11 +120,14 @@ def get_parser(parser: Optional[argparse.ArgumentParser] = None) -> argparse.Arg
         metavar='CONFERENCE ABBREVIATION', 
         help="Conference to get data for - one of: [" + ', '.join(df['conference'].unique()) + "]"
     )
+    attr_choices = [*df.columns, None]
     get_parser.add_argument(
         "column", 
-        choices=df.columns, 
+        choices=attr_choices, 
         metavar='ATTRIBUTE',
-         help="Conference attribute to get - one of: [" + ', '.join(df.columns) + "]"
+        help="Conference attribute to get - one of: [" + ', '.join(map(str, attr_choices)) + "]",
+        default=None,
+        nargs="?"
     )
     get_parser.set_defaults(func=get_command)
     return parser
@@ -125,7 +136,7 @@ def main():
     parser = get_parser()
     args = parser.parse_args()
 
-    if not hasattr(args, "command"):
+    if not hasattr(args, "func"):
         sys.argv.append("--help")
         parser.parse_args()
     else:

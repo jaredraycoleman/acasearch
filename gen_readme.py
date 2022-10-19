@@ -1,7 +1,8 @@
 import argparse
-from typing import Dict
-from acasearch import get_parser
 import pathlib
+from typing import Dict
+
+from acasearch import get_parser
 
 thisdir = pathlib.Path(__file__).parent.resolve()
 
