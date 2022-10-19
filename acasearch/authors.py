@@ -7,7 +7,6 @@ from functools import lru_cache
 from typing import Any, Dict, Optional, Set
 
 import numpy as np
-import pandas as pd
 import requests
 import yaml
 
@@ -103,20 +102,19 @@ points = {
     'B5': 1.5,
 }
 
-def get_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser()
-    parser.add_argument('authors_file', type=pathlib.Path)
-    parser.add_argument('-o', '--output', type=pathlib.Path, default='authors.yaml')
-    parser.add_argument('--log-level', default='INFO')
+def get_parser(parser: Optional[argparse.ArgumentParser] = None) -> argparse.ArgumentParser:
+    if parser is None:    
+        parser = argparse.ArgumentParser()
+    parser.add_argument('authors_file')
+    parser.add_argument('-o', '--output', default='authors.yaml')
+    parser.add_argument('--log-level', default='INFO', choices=['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'])
+    parser.set_defaults(func=authors_command)
     return parser
 
-def main():
-    parser = get_parser()
-    args = parser.parse_args()
-
+def authors_command(args: argparse.Namespace):
     logging.getLogger().setLevel(args.log_level)
-    infile = args.authors_file
-    outfile = args.output
+    infile = pathlib.Path(args.authors_file).resolve(strict=True)
+    outfile = pathlib.Path(args.output).resolve()
 
     authors = yaml.load(infile.read_text(), Loader=yaml.SafeLoader)
     authors = [author if isinstance(author, dict) else {'name': author} for author in authors]
@@ -201,6 +199,11 @@ def main():
         logging.info('Missing venues (Top 20):')
         for venue, count in sorted(missing_venues.items(), key=lambda x: x[1], reverse=True)[:20]:
             logging.info(f'\t{venue}: {count}')
+
+def main():
+    parser = get_parser()
+    args = parser.parse_args()
+    args.func(args)
 
 if __name__ == '__main__':
     main()
