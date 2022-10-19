@@ -93,7 +93,7 @@ def get_command(args: argparse.Namespace) -> None:
     print(data)
 
 
-def get_parser(parser: Optional[argparse.ArgumentParser] = None) -> argparse.ArgumentParser():
+def get_parser(parser: Optional[argparse.ArgumentParser] = None) -> argparse.ArgumentParser:
     df = load_data()
 
     if parser is None:
