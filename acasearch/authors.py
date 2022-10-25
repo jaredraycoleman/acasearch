@@ -25,6 +25,7 @@ URLS = {
 conference_aliases = {
     'WDAG': 'DISC',
     'IEEE ICBC': 'ICBC',
+    'SPDP': 'IPDPS',
 }
 
 def get_matching_venue(venue_abbr: str, all_venues: Set[str]) -> Optional[str]:
@@ -124,22 +125,25 @@ def authors_command(args: argparse.Namespace):
     for author in authors:
         # Get author publications
         name_query = author['name'].replace(' ', '_').strip()
-        logging.info(f"Getting publications for {name_query}")
+        logging.info(f"Getting venues for {name_query}")
         
         # try request 3 times before giving up
         while True:
             try:
                 res = requests.get(
-                    URLS['pub'], 
+                    "https://dblp.org/search/publ/api", 
                     params={
-                        'q': f'author:{name_query}', 
+                        'q': f'author:{name_query}:type:Conference_and_Workshop_Papers:', 
                         'h': 500,
+                        'c': 500,
+                        'p': '2',
                         'compl': 'venue', 
                         'format': 'json'
                     }
                 )
+                # print(res.request.url)
                 if res.status_code == 200:
-                    logging.info(f"Got publications for {name_query}")
+                    logging.info(f"Got venues for {name_query}")
                     break
                 else:
                     logging.error(f"Got status code {res.status_code} for {name_query}. Trying again in 5 seconds")
@@ -154,18 +158,12 @@ def authors_command(args: argparse.Namespace):
             # logging.warning(f"Response: {res.text}")
             continue
         res_json = res.json()
-        pubs = res_json['result']['hits']['hit']
+        venues = res_json['result']['completions']['c']
 
         venue_counts = {}
-        for pub in pubs:
-            # skip if paper not  "Conference and Workshop Papers"
-            if pub['info']['type'] != 'Conference and Workshop Papers':
-                continue
-            venues = pub['info']['venue']
-            if isinstance(venues, str):
-                venues = [venues]
-            for venue in venues:
-                venue_counts[venue] = venue_counts.get(venue, 0) + 1
+        for venue in venues:
+            name = venue['text'].lstrip(':facet:venue:')
+            venue_counts[name] = int(venue['@sc'])
         
         venue_gpa_points = 0
         venue_gpa_total = 0
