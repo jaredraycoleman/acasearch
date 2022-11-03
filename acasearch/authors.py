@@ -158,7 +158,12 @@ def authors_command(args: argparse.Namespace):
             # logging.warning(f"Response: {res.text}")
             continue
         res_json = res.json()
+        if 'c' not in res_json['result']['completions']:
+            logging.warning(f"Could not find venues for {author['name']}")
+            continue
         venues = res_json['result']['completions']['c']
+        if isinstance(venues, dict):
+            venues = [venues]
 
         venue_counts = {}
         for venue in venues:
