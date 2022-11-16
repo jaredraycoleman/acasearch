@@ -10,7 +10,7 @@ import numpy as np
 import requests
 import yaml
 
-from acasearch.conferences import load_data
+from coseto.conferences import load_data
 
 logging.getLogger().setLevel(logging.INFO)
 

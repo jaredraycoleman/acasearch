@@ -21,7 +21,7 @@ def main():
     parser = get_parser()
     args = parser.parse_args()
 
-    if not hasattr(args, "command"):
+    if not hasattr(args, "func"):
         sys.argv.append("--help")
         parser.parse_args()
     else:

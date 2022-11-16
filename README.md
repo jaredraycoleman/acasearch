@@ -1,5 +1,29 @@
-# acasearch
-usage: gen_readme.py [-h] {conferences,authors} ...
+# CoSeTo
+Conference Search Tool (CoSeTo) is a command-line tool for searching academic venues and authors
+
+## Installation
+```bash
+pip install -e ./coseto # -e flag is optional - it installs the package in editable mode
+```
+
+## Usage
+```bash
+coseto --help
+```
+## Examples
+```bash
+# search for conferences which have either blockchain or distributed ledger and either iot or internet of things in their call-for-papers
+coseto conferences search --upcoming "blockchain,distributed ledger;iot" > report.txt
+
+# get information on a specific conference
+coseto conferences get ISAAC
+
+# get author publication venues
+coseto authors ./examples/authors_input.yml -o ./examples/authors_output.yml
+```
+## CLI Documentation
+### coseto
+usage: coseto [-h] {conferences,authors} ...
 
 positional arguments:
   {conferences,authors}
@@ -7,8 +31,8 @@ positional arguments:
 optional arguments:
   -h, --help            show this help message and exit
 
-## acasearch conferences
-usage: gen_readme.py conferences [-h] {search,get} ...
+#### coseto conferences
+usage: coseto conferences [-h] {search,get} ...
 
 positional arguments:
   {search,get}
@@ -16,8 +40,8 @@ positional arguments:
 optional arguments:
   -h, --help    show this help message and exit
 
-### acasearch conferences search
-usage: gen_readme.py conferences search [-h] [--upcoming] query
+##### coseto conferences search
+usage: coseto conferences search [-h] [--upcoming] [query]
 
 positional arguments:
   query       Semi-colon seperated AND clauses of comma-seperated OR keywords
@@ -26,8 +50,8 @@ optional arguments:
   -h, --help  show this help message and exit
   --upcoming  If set, sort by upcoming deadline before ranking
 
-### acasearch conferences get
-usage: gen_readme.py conferences get [-h] CONFERENCE ABBREVIATION [ATTRIBUTE]
+##### coseto conferences get
+usage: coseto conferences get [-h] CONFERENCE ABBREVIATION [ATTRIBUTE]
 
 positional arguments:
   CONFERENCE ABBREVIATION
@@ -48,7 +72,9 @@ positional arguments:
                         SoCG, CCCG, ICEBE, MOBISYS, ANTS, ICC, CIKM, ROBIO,
                         ICWSM/A, ICWSM/B, ICWSM/C, eScience, AISI, AICCSA,
                         BDIoT, ISCC, HPCS, ICBTA, DAIS, ICICT, COCOON,
-                        COORDINATION, FORTE, ICORES]
+                        COORDINATION, FORTE, ICORES, ICCI, ICSOFT, ICBDA,
+                        BIGDATA, CRYPTO, EUROCRYPT, ICASSP, INTERSPEECH, ICIP,
+                        ICRA, IGARSS, ISIT, BRAIN]
   ATTRIBUTE             Conference attribute to get - one of: [conference,
                         h5_index, core_rank, era_rank, qualis_rank,
                         last_deadline, name, topics, None]
@@ -56,8 +82,8 @@ positional arguments:
 optional arguments:
   -h, --help            show this help message and exit
 
-## acasearch authors
-usage: gen_readme.py authors [-h] [-o OUTPUT]
+#### coseto authors
+usage: coseto authors [-h] [-o OUTPUT]
                              [--log-level {DEBUG,INFO,WARNING,ERROR,CRITICAL}]
                              authors_file
 

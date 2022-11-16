@@ -80,7 +80,7 @@ def do_query(query: List[List[str]], sort_upcoming: bool = False) -> None:
     print(to_report(df))
 
 def search_command(args: argparse.Namespace) -> None:
-    query = [[keyword for keyword in clause.split(",")] for clause in args.query.split(";")]
+    query = [[keyword for keyword in clause.split(",")] for clause in (args.query or " ").split(";")]
     do_query(query, sort_upcoming=args.upcoming)
 
 def get_command(args: argparse.Namespace) -> None:
@@ -89,6 +89,7 @@ def get_command(args: argparse.Namespace) -> None:
         data = df[df["conference"] == args.conference].T
         topics = "\t" + "\n\t".join(data.loc["topics"].values[0].split(" // "))
         columns = ["conference", "name", "core_rank", "era_rank", "qualis_rank", "h5_index", "last_deadline"]
+        data.loc['last_deadline'] = pd.to_datetime(data.loc['last_deadline']).dt.strftime("%B %d")
         data = data.loc[columns]
         print(data.to_string(header=False))
         print(f"topics {topics}")
@@ -109,7 +110,7 @@ def get_parser(parser: Optional[argparse.ArgumentParser] = None) -> argparse.Arg
     subparsers = parser.add_subparsers()
 
     query_parser = subparsers.add_parser("search")
-    query_parser.add_argument("query", help="Semi-colon seperated AND clauses of comma-seperated OR keywords")
+    query_parser.add_argument("query", help="Semi-colon seperated AND clauses of comma-seperated OR keywords", nargs="?")
     query_parser.add_argument("--upcoming", action="store_true", help="If set, sort by upcoming deadline before ranking")
     query_parser.set_defaults(func=search_command)
 
