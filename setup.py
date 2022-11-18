@@ -11,6 +11,7 @@ setup(
         "pandas",
         "thefuzz[speedup]",
         "pyperclip",
+        "pyyaml"
     ],
     entry_points={
         'console_scripts': [
