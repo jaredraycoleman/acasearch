@@ -18,6 +18,7 @@ setup(
             'coseto = coseto:main',
             'venues = coseto.conferences:main',
             'conferences = coseto.conferences:main',
+            'conf = coseto.conferences:main',
             'authors = coseto.authors:main',
         ],
     }
