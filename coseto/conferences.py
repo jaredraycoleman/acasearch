@@ -63,7 +63,7 @@ def to_report(df: pd.DataFrame) -> str:
 def remaining_days(deadline: datetime) -> int:
     return (deadline - datetime.today()).days % 365
 
-def do_query(query: List[List[str]], sort_upcoming: bool = False) -> None:
+def do_query(query: List[List[str]], sort_upcoming: bool = False, rank_threshold: str = "N/A", query_threshold: int = 0) -> None:
     df = load_data()
 
     sort_cols = [*SORT_COLS]
@@ -75,13 +75,26 @@ def do_query(query: List[List[str]], sort_upcoming: bool = False) -> None:
     if query:
         df = query_data(df, query)
         sort_cols = ["query_score", *sort_cols]
+        
+    sortorder = ["A*", "A", "B", "C", "N/A"]
+    df["core_rank"] = pd.Categorical(df["core_rank"], categories=sortorder, ordered=True)
+    df["core_rank"] = df["core_rank"].fillna("N/A")
+    df["core_rank"] = df["core_rank"].apply(lambda rank: rank if rank in sortorder else "N/A")
+    if rank_threshold != "N/A":
+        threshold_int = sortorder.index(rank_threshold)
+        df = df[df["core_rank"].apply(lambda rank: sortorder.index(rank) <= threshold_int)]
+
+        
+    if query_threshold > 0:
+        # remove CFPs with score below threshold
+        df = df[df["query_score"] >= query_threshold]
 
     df = sort_data(df, sort_cols)
     print(to_report(df))
 
 def search_command(args: argparse.Namespace) -> None:
     query = [[keyword for keyword in clause.split(",")] for clause in (args.query or " ").split(";")]
-    do_query(query, sort_upcoming=args.upcoming)
+    do_query(query, sort_upcoming=args.upcoming, rank_threshold=args.rank_threshold, query_threshold=args.query_threshold)
 
 def get_command(args: argparse.Namespace) -> None:
     df = load_data()
@@ -113,6 +126,11 @@ def get_parser(parser: Optional[argparse.ArgumentParser] = None) -> argparse.Arg
     query_parser.add_argument("query", help="Semi-colon seperated AND clauses of comma-seperated OR keywords", nargs="?")
     query_parser.add_argument("--upcoming", action="store_true", help="If set, sort by upcoming deadline before ranking")
     query_parser.set_defaults(func=search_command)
+    query_parser.add_argument("--query-threshold", help="Threshold for fuzzy matching", default=0.0, type=float)
+    query_parser.add_argument(
+        "--rank-threshold", help="Threshold for CORE rank", default="N/A", 
+        choices=["A*", "A", "B", "C", "N/A"]
+    )
 
     get_parser = subparsers.add_parser("get")
     get_parser.add_argument(
