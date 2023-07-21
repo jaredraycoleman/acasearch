@@ -117,7 +117,7 @@ def authors_command(args: argparse.Namespace):
     infile = pathlib.Path(args.authors_file).resolve(strict=True)
     outfile = pathlib.Path(args.output).resolve()
 
-    authors = yaml.load(infile.read_text(), Loader=yaml.SafeLoader)
+    authors = yaml.load(infile.read_text(encoding="utf-8"), Loader=yaml.SafeLoader)
     authors = [author if isinstance(author, dict) else {'name': author} for author in authors]
     author_venues = {}
     author_venues = {author['name']: author for author in author_venues}
@@ -141,6 +141,7 @@ def authors_command(args: argparse.Namespace):
                         'format': 'json'
                     }
                 )
+                print(res.url)
                 # print(res.request.url)
                 if res.status_code == 200:
                     logging.info(f"Got venues for {name_query}")

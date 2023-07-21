@@ -1,35 +1,30 @@
 import pyperclip
 
 SUBJECTS = """
-Novel and innovative distributed applications and systems, particularly in the areas of middleware
-cloud, edge and fog computing
-big data processing
-streaming and complex event processing
-distributed social networking
-IoT and cyber-physical systems
-mobile computing
-advanced networking (SDN/NFV)
-micro-services and service-oriented computing
-peer-to-peer systems, and
-data center and internet-scale systems.
-Novel architectures and mechanisms, particularly in the areas of
-publish/subscribe systems
-epidemic protocols
-language-based approaches
-virtualization and resource allocation
-distributed storage
-trusted execution environments
-blockchains, cryptocurrencies and smart contracts, and
-distributed consensus mechanisms.
-System issues and design goals, including
-interoperability and adaptation
-self-* properties (e.g., self-organization, self-management,…)
-security and practical applications of cryptography
-trust and privacy
-cooperation incentives and fairness
-fault-tolerance and dependability
-scalability and elasticity, and
-tail-performance and energy-efficiency
+Computer and communication networks, protocols and algorithms
+Wireless, mobile, ad-hoc and sensor networks, quantum networks, IoT applications, and blockchain networks
+Computer architectures, hardware accelerators, multi-core processors, memory systems and storage networks
+High Performance Computing
+Operating systems, file systems and databases
+Virtualization, data centers, distributed and cloud computing, fog and edge computing
+Mobile and personal computing systems
+Energy-efficient computing systems
+Real-time and fault-tolerant systems
+Security and privacy of computing and networked systems
+Software systems and services, and enterprise applications
+Social networks, metaverse, multimedia systems, Web services
+Cyber-physical systems, including the smart grid
+Analytical modeling techniques and model validation
+Workload characterization and benchmarking
+Performance, scalability, power and reliability analysis
+Sustainability analysis and power management
+System measurement, performance monitoring and forecasting
+Anomaly detection, problem diagnosis and troubleshooting
+Capacity planning, resource allocation, run time management and scheduling
+Experimental design, statistical analysis, simulation
+Game theory, network economics, and platform design
+Machine learning, AI, Big data, data mining, graph analysis, optimization
+Quantum computing
 """
 
 PARSE_LINES = False
