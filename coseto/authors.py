@@ -197,7 +197,7 @@ def authors_command(args: argparse.Namespace):
         author['venue_gpa'] = venue_gpa
         author['venues'] = deepcopy(venues)
         
-    outfile.write_text(yaml.safe_dump(authors, sort_keys=False, indent=2))
+    outfile.write_text(yaml.safe_dump(authors, sort_keys=False, indent=2, allow_unicode=True), encoding="utf-8")
 
     if missing_venues:
         logging.info('Missing venues (Top 20):')
