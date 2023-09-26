@@ -35,7 +35,7 @@ def load_data() -> pd.DataFrame:
             ])
         )
     )
-    df.loc[:, "last_deadline"] = df["last_deadline"].apply(date_parse)
+    df["last_deadline"] = pd.to_datetime(df["last_deadline"].apply(date_parse))
     df["core_rank"] = pd.Categorical(df["core_rank"], ["A*", "A", "B", "C"])
     return df
 
@@ -55,6 +55,7 @@ def sort_data(df: pd.DataFrame,
 def to_report(df: pd.DataFrame) -> str:
     columns = ["conference", "h5_index", "core_rank", "era_rank", "qualis_rank", "last_deadline", "name", "query_score"]
     columns = [col for col in df.columns if col in columns]
+    print(df['last_deadline'])
     df.loc[:, "last_deadline"] = df["last_deadline"].dt.strftime("%b %d")
     return df[columns].to_string(index=None)
 
