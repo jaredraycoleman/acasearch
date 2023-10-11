@@ -1,17 +1,19 @@
 import argparse
-import pathlib
 import sys
 from datetime import datetime
 from functools import lru_cache, partial
 from io import StringIO
 from typing import List, Optional
+from pathlib import Path
+import os
 
 import pandas as pd
 from dateutil.parser import parse as date_parse
 from thefuzz import fuzz
 
-thisdir = pathlib.Path(__file__).resolve().parent
-
+thisdir = Path(__file__).resolve().parent
+data_file_name = "data.csv"
+data_file_path = Path(os.path.join(thisdir.parent, "data", data_file_name))
 
 def score(clauses: List[List[str]], topics: str) -> float:
     return min(  # max match across clauses - ALL clauses should match
@@ -28,7 +30,7 @@ def score(clauses: List[List[str]], topics: str) -> float:
 def load_data() -> pd.DataFrame:
     df = pd.read_csv(
         StringIO(
-            "".join([i if ord(i) < 128 else " " for i in thisdir.joinpath("data.csv").read_text()])
+            "".join([i if ord(i) < 128 else " " for i in data_file_path.read_text()])
         )
     )
     df["last_deadline"] = pd.to_datetime(df["last_deadline"].apply(date_parse))
