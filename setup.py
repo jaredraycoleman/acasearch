@@ -1,10 +1,11 @@
 from setuptools import setup
+from coseto.__version__ import __version__
 
 setup(
     name="coseto",
     author="Jared Coleman",
     author_email="jaredraycoleman@gmail.com",
-    version="0.0.2",
+    version=__version__,
     packages=["coseto"],
     include_package_data=True,
     install_requires=["pandas", "thefuzz[speedup]", "pyperclip", "pyyaml"],
