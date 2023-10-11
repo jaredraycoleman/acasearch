@@ -1,0 +1,4 @@
+pandas
+thefuzz[speedup]
+pyperclip
+pyyaml

@@ -1,6 +1,10 @@
 from setuptools import setup
 from coseto.__version__ import __version__
 
+install_requires = []
+with open('requirements.txt') as f:
+    install_requires = f.read().strip().split('\n')
+
 setup(
     name="coseto",
     author="Jared Coleman",
@@ -8,7 +12,7 @@ setup(
     version=__version__,
     packages=["coseto"],
     include_package_data=True,
-    install_requires=["pandas", "thefuzz[speedup]", "pyperclip", "pyyaml"],
+    install_requires=install_requires,
     entry_points={
         "console_scripts": [
             "coseto = coseto:main",
