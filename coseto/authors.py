@@ -17,16 +17,17 @@ logging.getLogger().setLevel(logging.INFO)
 thisdir = pathlib.Path(__file__).parent.resolve()
 
 URLS = {
-    'author': 'https://dblp.org/search/author/api',
-    'venue': 'https://dblp.org/search/venue/api',
-    'pub': 'https://dblp.org/search/publ/api',
+    "author": "https://dblp.org/search/author/api",
+    "venue": "https://dblp.org/search/venue/api",
+    "pub": "https://dblp.org/search/publ/api",
 }
 
 conference_aliases = {
-    'WDAG': 'DISC',
-    'IEEE ICBC': 'ICBC',
-    'SPDP': 'IPDPS',
+    "WDAG": "DISC",
+    "IEEE ICBC": "ICBC",
+    "SPDP": "IPDPS",
 }
+
 
 def get_matching_venue(venue_abbr: str, all_venues: Set[str]) -> Optional[str]:
     """Returns first matching venue
@@ -46,7 +47,7 @@ def get_matching_venue(venue_abbr: str, all_venues: Set[str]) -> Optional[str]:
     for venue_alias in conference_aliases:
         if venue_abbr == venue_alias:
             return conference_aliases[venue_alias]
-    
+
     venue_abbr = venue_abbr.lower()
     for venue in all_venues:
         if venue.lower() == venue_abbr:
@@ -59,58 +60,67 @@ def get_matching_venue(venue_abbr: str, all_venues: Set[str]) -> Optional[str]:
         elif venue_abbr == venue.lower().split("/")[0]:
             return conference_aliases[venue]
 
-    venue_abbr = ''.join([c for c in venue_abbr if c.isalpha()])
+    venue_abbr = "".join([c for c in venue_abbr if c.isalpha()])
     for venue in all_venues:
-        if ''.join([c for c in venue.lower() if c.isalpha()]) == venue_abbr:
+        if "".join([c for c in venue.lower() if c.isalpha()]) == venue_abbr:
             return venue
-        elif ''.join([c for c in venue.lower().split("/")[0] if c.isalpha()]) == venue_abbr:
+        elif "".join([c for c in venue.lower().split("/")[0] if c.isalpha()]) == venue_abbr:
             return venue
     for venue in conference_aliases:
-        if ''.join([c for c in venue.lower() if c.isalpha()]) == venue_abbr:
+        if "".join([c for c in venue.lower() if c.isalpha()]) == venue_abbr:
             return conference_aliases[venue]
-        elif ''.join([c for c in venue.lower().split("/")[0] if c.isalpha()]) == venue_abbr:
+        elif "".join([c for c in venue.lower().split("/")[0] if c.isalpha()]) == venue_abbr:
             return conference_aliases[venue]
-        
+
     return None
+
 
 @lru_cache(maxsize=1000)
 def get_info(venue_abbr: str) -> Dict[str, Any]:
     df = load_data()
-    all_venues = df['conference'].unique()
+    all_venues = df["conference"].unique()
     venue = get_matching_venue(venue_abbr, all_venues)
     if venue is None:
         raise ValueError(f"Could not find venue {venue_abbr}")
 
-    df = df.drop(columns=['topics', 'last_deadline'])
+    df = df.drop(columns=["topics", "last_deadline"])
     df = df.astype(object).where((df.notna() & df.notnull()), None)
-    
-    info = df[df['conference'] == venue].iloc[0].to_dict()
-    del info['conference']
+
+    info = df[df["conference"] == venue].iloc[0].to_dict()
+    del info["conference"]
     return info
 
-points = {
-    'A*': 4.0,
-    'A': 4.0,
-    'B': 3.0,
-    'C': 2.0,
 
-    'A1': 4.0,
-    'A2': 4.0,
-    'B1': 3.5,
-    'B2': 3.0,
-    'B3': 2.5,
-    'B4': 2.0,
-    'B5': 1.5,
+points = {
+    "A*": 4.0,
+    "A": 4.0,
+    "B": 3.0,
+    "C": 2.0,
+    "A1": 4.0,
+    "A2": 4.0,
+    "B1": 3.5,
+    "B2": 3.0,
+    "B3": 2.5,
+    "B4": 2.0,
+    "B5": 1.5,
 }
 
-def get_parser(parser: Optional[argparse.ArgumentParser] = None) -> argparse.ArgumentParser:
-    if parser is None:    
+
+def get_parser(
+    parser: Optional[argparse.ArgumentParser] = None,
+) -> argparse.ArgumentParser:
+    if parser is None:
         parser = argparse.ArgumentParser()
-    parser.add_argument('authors_file')
-    parser.add_argument('-o', '--output', default='authors.yaml')
-    parser.add_argument('--log-level', default='INFO', choices=['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'])
+    parser.add_argument("authors_file")
+    parser.add_argument("-o", "--output", default="authors.yaml")
+    parser.add_argument(
+        "--log-level",
+        default="INFO",
+        choices=["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"],
+    )
     parser.set_defaults(func=authors_command)
     return parser
+
 
 def authors_command(args: argparse.Namespace):
     logging.getLogger().setLevel(args.log_level)
@@ -118,28 +128,28 @@ def authors_command(args: argparse.Namespace):
     outfile = pathlib.Path(args.output).resolve()
 
     authors = yaml.load(infile.read_text(encoding="utf-8"), Loader=yaml.SafeLoader)
-    authors = [author if isinstance(author, dict) else {'name': author} for author in authors]
+    authors = [author if isinstance(author, dict) else {"name": author} for author in authors]
     author_venues = {}
-    author_venues = {author['name']: author for author in author_venues}
+    author_venues = {author["name"]: author for author in author_venues}
     missing_venues = {}
     for author in authors:
         # Get author publications
-        name_query = author['name'].replace(' ', '_').strip()
+        name_query = author["name"].replace(" ", "_").strip()
         logging.info(f"Getting venues for {name_query}")
-        
+
         # try request 3 times before giving up
         while True:
             try:
                 res = requests.get(
-                    "https://dblp.org/search/publ/api", 
+                    "https://dblp.org/search/publ/api",
                     params={
-                        'q': f'author:{name_query}:type:Conference_and_Workshop_Papers:', 
-                        'h': 500,
-                        'c': 500,
-                        'p': '2',
-                        'compl': 'venue', 
-                        'format': 'json'
-                    }
+                        "q": f"author:{name_query}:type:Conference_and_Workshop_Papers:",
+                        "h": 500,
+                        "c": 500,
+                        "p": "2",
+                        "compl": "venue",
+                        "format": "json",
+                    },
                 )
                 print(res.url)
                 # print(res.request.url)
@@ -147,7 +157,9 @@ def authors_command(args: argparse.Namespace):
                     logging.info(f"Got venues for {name_query}")
                     break
                 else:
-                    logging.error(f"Got status code {res.status_code} for {name_query}. Trying again in 5 seconds")
+                    logging.error(
+                        f"Got status code {res.status_code} for {name_query}. Trying again in 5 seconds"
+                    )
                     time.sleep(5)
             except:
                 logging.error(f"Request failed, trying again after 5 seconds")
@@ -159,18 +171,18 @@ def authors_command(args: argparse.Namespace):
             # logging.warning(f"Response: {res.text}")
             continue
         res_json = res.json()
-        if 'c' not in res_json['result']['completions']:
+        if "c" not in res_json["result"]["completions"]:
             logging.warning(f"Could not find venues for {author['name']}")
             continue
-        venues = res_json['result']['completions']['c']
+        venues = res_json["result"]["completions"]["c"]
         if isinstance(venues, dict):
             venues = [venues]
 
         venue_counts = {}
         for venue in venues:
-            name = venue['text'].lstrip(':facet:venue:')
-            venue_counts[name] = int(venue['@sc'])
-        
+            name = venue["text"].lstrip(":facet:venue:")
+            venue_counts[name] = int(venue["@sc"])
+
         venue_gpa_points = 0
         venue_gpa_total = 0
         venues = {}
@@ -178,36 +190,43 @@ def authors_command(args: argparse.Namespace):
             try:
                 info = get_info(venue)
                 venues[venue] = info
-                info['count'] = count
+                info["count"] = count
             except ValueError:
-                venues[venue] = {'count': count}
+                venues[venue] = {"count": count}
                 missing_venues[venue] = missing_venues.get(venue, 0) + count
-                continue 
+                continue
 
             rank_points = [
-                points[info[rank]] 
-                for rank in ['core_rank', 'era_rank', 'qualis_rank']
+                points[info[rank]]
+                for rank in ["core_rank", "era_rank", "qualis_rank"]
                 if points.get(info[rank]) is not None
             ]
             if rank_points:
                 venue_gpa_points += np.mean(rank_points) * count
                 venue_gpa_total += count
 
-        venue_gpa = None if venue_gpa_total == 0 else float(round(venue_gpa_points / venue_gpa_total, 2))
-        author['venue_gpa'] = venue_gpa
-        author['venues'] = deepcopy(venues)
-        
-    outfile.write_text(yaml.safe_dump(authors, sort_keys=False, indent=2, allow_unicode=True), encoding="utf-8")
+        venue_gpa = (
+            None if venue_gpa_total == 0 else float(round(venue_gpa_points / venue_gpa_total, 2))
+        )
+        author["venue_gpa"] = venue_gpa
+        author["venues"] = deepcopy(venues)
+
+    outfile.write_text(
+        yaml.safe_dump(authors, sort_keys=False, indent=2, allow_unicode=True),
+        encoding="utf-8",
+    )
 
     if missing_venues:
-        logging.info('Missing venues (Top 20):')
+        logging.info("Missing venues (Top 20):")
         for venue, count in sorted(missing_venues.items(), key=lambda x: x[1], reverse=True)[:20]:
-            logging.info(f'\t{venue}: {count}')
+            logging.info(f"\t{venue}: {count}")
+
 
 def main():
     parser = get_parser()
     args = parser.parse_args()
     args.func(args)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
