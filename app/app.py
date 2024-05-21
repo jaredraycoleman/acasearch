@@ -80,11 +80,14 @@ def edit_conference(acronym):
         return redirect(url_for('acasearch.index'))
     return render_template('edit_conference.html', form=form, conference=conference)
 
-@bp.route('/get/<acronym>', methods=['GET'])
+@bp.route('/get/<path:acronym>', methods=['GET'])
 def get_conference(acronym):
-    # get_conference.html
+    print(acronym)
     conference = mongo.db.conferences.find_one({'acronym': acronym})
-    return render_template('get_conference.html', conference=conference)
+    error = None
+    if not conference:
+        error = f'Conference {acronym} not found.'
+    return render_template('get_conference.html', conference=conference, error=error)
 
 
 def search_venues(query: str) -> List[Dict]:

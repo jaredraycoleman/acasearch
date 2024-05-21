@@ -11,13 +11,15 @@
             <th>Notification</th>
             <th>Days to Deadline</th>
             <th>Actions</th>
+            <th>Search Score</th>
         </tr>
         <tr>
-            <th><input type="text" placeholder="Search Acronym" /></th>
-            <th><input type="text" placeholder="Search CORE Rank" /></th>
-            <th><input type="text" placeholder="Search Deadline" /></th>
-            <th><input type="text" placeholder="Search Notification" /></th>
-            <th><input type="text" placeholder="Search Days to Deadline" /></th>
+            <th><input type="text" placeholder="Search" /></th>
+            <th><input type="text" placeholder="Search" /></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
             <th></th>
         </tr>
     </thead>
@@ -29,13 +31,15 @@
             <td>{{ conference.deadline.strftime('%m/%d/%y') if conference.deadline else '' }}</td>
             <td>{{ conference.notification_date.strftime('%m/%d/%y') if conference.notification_date else '' }}</td>
             <td>{{ conference.days_until_deadline }}</td>
-            <td>
+            <td style="white-space: nowrap;">
+                <!-- make sure to replace "/" in acronym with "%2F" for URL encoding -->
                 {% if is_editor %}
                 <a href="{{ url_for('acasearch.edit_conference', acronym=conference.acronym) }}" class="btn btn-warning btn-sm">Edit</a>
                 {% endif %}
-                <a href="{{ url_for('acasearch.get_conference', acronym=conference.acronym) }}" class="btn btn-primary btn-sm">Details</a>
+                <a href="{{ url_for('acasearch.get_conference', acronym=conference.acronym) }}" class="btn btn-primary btn-sm">View</a>
             </td>
-            <td style="display:none;">{{ conference.description }}</td> <!-- Hidden description column -->
+            <td></td> <!-- Empty search score column -->
+            <td style="display:none;">{{ conference.description }}</td>
         </tr>
         {% endfor %}
     </tbody>
@@ -45,6 +49,7 @@
 {% block scripts %}
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/plug-ins/1.11.3/features/fuzzySearch/dataTables.fuzzySearch.js"></script>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
 <script>
     // Custom sorting plugin for CORE Rank
@@ -61,6 +66,10 @@
     $(document).ready(function() {
         // DataTable initialization
         var table = $('#conferenceTable').DataTable({
+            "fuzzySearch": {
+                toggleSmart: false,
+                rankColumn: 6
+            },
             "columnDefs": [
                 {
                     "type": "core-rank",
@@ -76,11 +85,11 @@
                     }
                 },
                 {
-                    "targets": 6, // Description column
+                    "targets": 7, // Description column
                     "visible": false,
                     "searchable": true
                 }
-            ]
+            ],
         });
 
         // Apply the search

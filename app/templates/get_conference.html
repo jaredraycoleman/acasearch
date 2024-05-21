@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1 class="text-center mt-3">Conference Info</h1>
+<h1 class="text-center my-3">Conference Info</h1>
+{% if error %}
+<div class="alert alert-danger show text-center" role="alert">
+    {{ error }}
+</div>
+{% else %}
 <table class="table">
     <tr>
         <th>Acronym</th>
@@ -48,5 +53,6 @@
         <td>{{ conference.description }}</td>
     </tr>
 </table>
+{% endif %}
 
 {% endblock %}
