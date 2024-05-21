@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="text-center mt-3">Conferences</h1>
+<table id="conferenceTable" class="table">
+    <thead>
+        <tr>
+            <th>Acronym</th>
+            <th>CORE Rank</th>
+            <th>Deadline</th>
+            <th>Notification</th>
+            <th>Days to Deadline</th>
+            <th>Actions</th>
+        </tr>
+        <tr>
+            <th><input type="text" placeholder="Search Acronym" /></th>
+            <th><input type="text" placeholder="Search CORE Rank" /></th>
+            <th><input type="text" placeholder="Search Deadline" /></th>
+            <th><input type="text" placeholder="Search Notification" /></th>
+            <th><input type="text" placeholder="Search Days to Deadline" /></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for conference in conferences %}
+        <tr>
+            <td>{{ conference.acronym }}</td>
+            <td>{{ conference.core_rank }}</td>
+            <td>{{ conference.deadline.strftime('%m/%d/%y') if conference.deadline else '' }}</td>
+            <td>{{ conference.notification_date.strftime('%m/%d/%y') if conference.notification_date else '' }}</td>
+            <td>{{ conference.days_until_deadline }}</td>
+            <td>
+                {% if is_editor %}
+                <a href="{{ url_for('acasearch.edit_conference', acronym=conference.acronym) }}" class="btn btn-warning btn-sm">Edit</a>
+                {% endif %}
+                <a href="{{ url_for('acasearch.get_conference', acronym=conference.acronym) }}" class="btn btn-primary btn-sm">Details</a>
+            </td>
+            <td style="display:none;">{{ conference.description }}</td> <!-- Hidden description column -->
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+<script>
+    // Custom sorting plugin for CORE Rank
+    jQuery.fn.dataTable.ext.type.order['core-rank-pre'] = function (d) {
+        switch (d) {
+            case 'A*': return 1;
+            case 'A': return 2;
+            case 'B': return 3;
+            case 'C': return 4;
+            default: return 5;
+        }
+    };
+
+    $(document).ready(function() {
+        // DataTable initialization
+        var table = $('#conferenceTable').DataTable({
+            "columnDefs": [
+                {
+                    "type": "core-rank",
+                    "targets": 1 // CORE Rank column
+                },
+                {
+                    "targets": [2, 3], // Date columns
+                    "render": function(data, type, row) {
+                        if (type === 'display' || type === 'filter') {
+                            return new Date(data).toLocaleDateString('en-US');
+                        }
+                        return data;
+                    }
+                },
+                {
+                    "targets": 6, // Description column
+                    "visible": false,
+                    "searchable": true
+                }
+            ]
+        });
+
+        // Apply the search
+        $('#conferenceTable thead tr:eq(1) th').each(function (i) {
+            $('input', this).on('keyup change', function () {
+                if (table.column(i).search() !== this.value) {
+                    table
+                        .column(i)
+                        .search(this.value)
+                        .draw();
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}

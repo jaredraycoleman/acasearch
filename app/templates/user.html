@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2 class="text-center mt-4">User Profile</h2>
+            {% if error_message %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ error_message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endif %}
+            {% if success_message %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ success_message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endif %}
+            
+            <div class="row">
+                <div class="col-12 col-md-2 text-center  d-flex align-items-center justify-content-center">
+                    <!-- picture -->
+                    <img src="{{ user.picture }}" class="img-fluid rounded-circle" alt="Profile Picture" style="width: 100%; max-width: 200px;">
+                </div>
+                
+                <div class="col-12 col-md-10">
+                    <p>
+                        <strong>Username:</strong> </br>
+                        {{ user.nickname }}
+                    </p>
+                    <p>
+                        <strong>Email:</strong> </br>
+                        {{ user.name }}
+                    </p>
+
+                    
+                    <form method="post" action="{{ url_for('acasearch.auth0.delete_account') }}"
+                        onsubmit="return confirm('Are you sure you want to delete your account for ALL Kubishi applications?')">
+                        <button type="submit"class="btn btn-outline-danger mt-3 w-100">Delete Account</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

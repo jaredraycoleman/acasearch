@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="text-center mt-3">Edit Conference</h1>
+<form method="POST" action="{{ url_for('acasearch.edit_conference', acronym=conference.acronym) }}">
+    {{ form.hidden_tag() }}
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            {{ form.acronym.label(class="form-label") }}
+            {{ form.acronym(class="form-control") }}
+        </div>
+        <div class="col-md-6 mb-3">
+            {{ form.name.label(class="form-label") }}
+            {{ form.name(class="form-control") }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            {{ form.core_rank.label(class="form-label") }}
+            {{ form.core_rank(class="form-control") }}
+        </div>
+        <div class="col-md-6 mb-3">
+            {{ form.h5_index.label(class="form-label") }}
+            {{ form.h5_index(class="form-control") }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            {{ form.era_rank.label(class="form-label") }}
+            {{ form.era_rank(class="form-control") }}
+        </div>
+        <div class="col-md-6 mb-3">
+            {{ form.qualis_rank.label(class="form-label") }}
+            {{ form.qualis_rank(class="form-control") }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            {{ form.deadline.label(class="form-label") }}
+            {{ form.deadline(class="form-control") }}
+        </div>
+        <div class="col-md-6 mb-3">
+            {{ form.notification_date.label(class="form-label") }}
+            {{ form.notification_date(class="form-control") }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            {{ form.start_date.label(class="form-label") }}
+            {{ form.start_date(class="form-control") }}
+        </div>
+        <div class="col-md-6 mb-3">
+            {{ form.end_date.label(class="form-label") }}
+            {{ form.end_date(class="form-control") }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            {{ form.location.label(class="form-label") }}
+            {{ form.location(class="form-control") }}
+        </div>
+    </div>
+    <div class="mb-3">
+        {{ form.description.label(class="form-label") }}
+        {{ form.description(class="form-control", rows=20) }}
+    </div>
+    <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-primary">Update Conference</button>
+    </div>
+</form>
+{% endblock %}
