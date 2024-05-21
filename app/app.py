@@ -1,3 +1,4 @@
+import traceback
 from typing import Dict, List, Tuple
 from flask import Flask, render_template, redirect, url_for, request, jsonify
 from flask_pymongo import PyMongo
@@ -77,17 +78,25 @@ def edit_conference(acronym):
             'description': form.description.data
         }
         mongo.db.conferences.update_one({'acronym': acronym}, {'$set': updated_conference})
-        return redirect(url_for('acasearch.index'))
+        return redirect(url_for('acasearch.get_conference', acronym=acronym))
     return render_template('edit_conference.html', form=form, conference=conference)
+
+@bp.route('/delete/<path:acronym>', methods=['POST'])
+@requires_role('editor')
+def delete_conference(acronym):
+    mongo.db.conferences.delete_one({'acronym': acronym})
+    return redirect(url_for('acasearch.index'))
 
 @bp.route('/get/<path:acronym>', methods=['GET'])
 def get_conference(acronym):
-    print(acronym)
     conference = mongo.db.conferences.find_one({'acronym': acronym})
     error = None
     if not conference:
         error = f'Conference {acronym} not found.'
-    return render_template('get_conference.html', conference=conference, error=error)
+    is_editor = False
+    if 'acasearch_roles' in get_app_metadata():
+        is_editor = 'editor' in get_app_metadata()['acasearch_roles']
+    return render_template('get_conference.html', conference=conference, error=error, is_editor=is_editor)
 
 
 def search_venues(query: str) -> List[Dict]:

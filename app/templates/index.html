@@ -92,6 +92,9 @@
             ],
         });
 
+        // default sort by search score
+        table.order([6, 'desc']).draw();
+
         // Apply the search
         $('#conferenceTable thead tr:eq(1) th').each(function (i) {
             $('input', this).on('keyup change', function () {

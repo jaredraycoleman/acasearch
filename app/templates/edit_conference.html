@@ -7,6 +7,36 @@
     {% include 'conference_form.html' %}
     <div class="d-grid gap-2">
         <button type="submit" class="btn btn-primary">Update Conference</button>
+        <button type="button" class="btn btn-danger", id="deleteButton">Delete Conference</button>
     </div>
 </form>
+
+{% endblock %}
+
+
+{% block scripts %}
+<!-- send POST to url_for('acasearch.delete_conference', acronym=conference.acronym) -->
+<script>
+    document.getElementById('deleteButton').addEventListener('click', function() {
+        var url = "{{ url_for('acasearch.delete_conference', acronym=conference.acronym) }}";
+        var index_url = "{{ url_for('acasearch.index') }}";
+        if (confirm('Are you sure you want to delete this conference?')) {
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    acronym: '{{ conference.acronym }}'
+                })
+            }).then(function(response) {
+                if (response.ok) {
+                    window.location.href = index_url;
+                } else {
+                    alert('Failed to delete conference');
+                }
+            });
+        }
+    });
+</script>
 {% endblock %}
