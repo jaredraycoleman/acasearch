@@ -35,7 +35,7 @@ def load_data() -> pd.DataFrame:
             ])
         )
     )
-    df["last_deadline"] = pd.to_datetime(df["last_deadline"].apply(date_parse))
+    df["deadline"] = pd.to_datetime(df["deadline"].apply(date_parse))
     df["core_rank"] = pd.Categorical(df["core_rank"], ["A*", "A", "B", "C"])
     return df
 
@@ -53,10 +53,9 @@ def sort_data(df: pd.DataFrame,
     )
 
 def to_report(df: pd.DataFrame) -> str:
-    columns = ["conference", "h5_index", "core_rank", "era_rank", "qualis_rank", "last_deadline", "name", "query_score"]
+    columns = ["conference", "h5_index", "core_rank", "era_rank", "qualis_rank", "deadline", "name", "query_score"]
     columns = [col for col in df.columns if col in columns]
-    print(df['last_deadline'])
-    df.loc[:, "last_deadline"] = df["last_deadline"].dt.strftime("%b %d")
+    df.loc[:, "deadline"] = df["deadline"].dt.strftime("%b %d")
     return df[columns].to_string(index=None)
 
 
@@ -69,10 +68,10 @@ def do_query(query: List[List[str]], sort_upcoming: bool = False, rank_threshold
 
     sort_cols = [*SORT_COLS]
     if sort_upcoming:
-        df["remaining_days"] = df["last_deadline"].apply(remaining_days)
+        df["remaining_days"] = df["deadline"].apply(remaining_days)
         sort_cols = ["remaining_days", *sort_cols]
 
-    # df = df[df["last_deadline"] - datetime.today()]
+    # df = df[df["deadline"] - datetime.today()]
     if query:
         df = query_data(df, query)
         sort_cols = ["query_score", *sort_cols]
@@ -102,8 +101,8 @@ def get_command(args: argparse.Namespace) -> None:
     if args.column is None:
         data = df[df["conference"] == args.conference].T
         topics = "\t" + "\n\t".join(data.loc["topics"].values[0].split(" // "))
-        columns = ["conference", "name", "core_rank", "era_rank", "qualis_rank", "h5_index", "last_deadline"]
-        data.loc['last_deadline'] = pd.to_datetime(data.loc['last_deadline']).dt.strftime("%B %d")
+        columns = ["conference", "name", "core_rank", "era_rank", "qualis_rank", "h5_index", "deadline"]
+        data.loc['deadline'] = pd.to_datetime(data.loc['deadline']).dt.strftime("%B %d")
         data = data.loc[columns]
         print(data.to_string(header=False))
         print(f"topics {topics}")
@@ -111,7 +110,7 @@ def get_command(args: argparse.Namespace) -> None:
         data = df.set_index("conference").loc[args.conference,args.column]
         if args.column == "topics":
             data = "\n".join(data.split(" // "))
-        elif args.column == "last_deadline":
+        elif args.column == "deadline":
             data = data.strftime("%B %d")
         print(data)
 

@@ -77,7 +77,7 @@ positional arguments:
                         ICRA, IGARSS, ISIT, BRAIN]
   ATTRIBUTE             Conference attribute to get - one of: [conference,
                         h5_index, core_rank, era_rank, qualis_rank,
-                        last_deadline, name, topics, None]
+                        deadline, name, topics, None]
 
 optional arguments:
   -h, --help            show this help message and exit

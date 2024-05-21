@@ -81,7 +81,7 @@ def get_info(venue_abbr: str) -> Dict[str, Any]:
     if venue is None:
         raise ValueError(f"Could not find venue {venue_abbr}")
 
-    df = df.drop(columns=['topics', 'last_deadline'])
+    df = df.drop(columns=['topics', 'deadline'])
     df = df.astype(object).where((df.notna() & df.notnull()), None)
     
     info = df[df['conference'] == venue].iloc[0].to_dict()
@@ -141,8 +141,6 @@ def authors_command(args: argparse.Namespace):
                         'format': 'json'
                     }
                 )
-                print(res.url)
-                # print(res.request.url)
                 if res.status_code == 200:
                     logging.info(f"Got venues for {name_query}")
                     break
