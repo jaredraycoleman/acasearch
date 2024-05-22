@@ -7,13 +7,10 @@ import dotenv
 import os
 import datetime
 
-from app_base import app, bp, FLASK_ENV, SECRET_KEY
-from app_oauth import get_app_metadata, requires_role
+from app_base import app, bp, mongo, FLASK_ENV, SECRET_KEY
+from app_oauth import get_user_metadata, requires_admin, requires_editor
 
 dotenv.load_dotenv()
-
-app.config["MONGO_URI"] = os.getenv("MONGO_URI")
-mongo = PyMongo(app)
 
 @bp.route('/')
 def index():
@@ -27,13 +24,9 @@ def index():
         else:
             conference['days_until_deadline'] = None
     is_editor = False
-    if 'acasearch_roles' in get_app_metadata():
-        is_editor = 'editor' in get_app_metadata()['acasearch_roles']
+    user = get_user_metadata()
+    is_editor = user.get('is_editor', False)
     return render_template('index.html', conferences=conferences, is_editor=is_editor)
-
-# @bp.route('/user')
-# def user():
-#     return render_template('user.html', user=get_app_metadata())
 
 @bp.route('/add', methods=['GET', 'POST'])
 def add_conference():
@@ -58,7 +51,7 @@ def add_conference():
     return render_template('add_conference.html', form=form)
 
 @bp.route('/edit/<acronym>', methods=['GET', 'POST'])
-@requires_role('editor')
+@requires_editor
 def edit_conference(acronym):
     conference = mongo.db.conferences.find_one({'acronym': acronym})
     form = ConferenceForm(data=conference)
@@ -82,7 +75,7 @@ def edit_conference(acronym):
     return render_template('edit_conference.html', form=form, conference=conference)
 
 @bp.route('/delete/<path:acronym>', methods=['POST'])
-@requires_role('editor')
+@requires_editor
 def delete_conference(acronym):
     mongo.db.conferences.delete_one({'acronym': acronym})
     return redirect(url_for('acasearch.index'))
@@ -93,9 +86,8 @@ def get_conference(acronym):
     error = None
     if not conference:
         error = f'Conference {acronym} not found.'
-    is_editor = False
-    if 'acasearch_roles' in get_app_metadata():
-        is_editor = 'editor' in get_app_metadata()['acasearch_roles']
+    user = get_user_metadata()
+    is_editor = user.get('is_editor', False)
     return render_template('get_conference.html', conference=conference, error=error, is_editor=is_editor)
 
 

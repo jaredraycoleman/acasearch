@@ -13,15 +13,6 @@
             <th>Actions</th>
             <th>Search Score</th>
         </tr>
-        <tr>
-            <th><input type="text" placeholder="Search" /></th>
-            <th><input type="text" placeholder="Search" /></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
     </thead>
     <tbody>
         {% for conference in conferences %}
@@ -94,18 +85,6 @@
 
         // default sort by search score
         table.order([6, 'desc']).draw();
-
-        // Apply the search
-        $('#conferenceTable thead tr:eq(1) th').each(function (i) {
-            $('input', this).on('keyup change', function () {
-                if (table.column(i).search() !== this.value) {
-                    table
-                        .column(i)
-                        .search(this.value)
-                        .draw();
-                }
-            });
-        });
     });
 </script>
 {% endblock %}

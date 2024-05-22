@@ -1,18 +1,18 @@
-
 from functools import wraps
 import os
 import traceback
 from urllib.parse import urlencode
-from app_base import bp
+from app_base import bp, mongo
 
 from auth0.authentication import Users, GetToken
 from flask import session, url_for, flash, g
 from flask_oauthlib.client import OAuth
 from flask import Blueprint, render_template, redirect, request
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField
+from wtforms import BooleanField
 from wtforms.validators import DataRequired
 from auth0.management.auth0 import Auth0
+
 
 auth0_bp = Blueprint('auth0', __name__)
 
@@ -43,18 +43,23 @@ def requires_auth(f):
         return f(*args, **kwargs)
     return decorated
 
-def requires_role(role):
-    def decorator(f):
-        @wraps(f)
-        def decorated(*args, **kwargs):
-            if 'profile' not in session:
-                return redirect(url_for('acasearch.index'))
-            metadata = get_app_metadata()
-            if role not in metadata['acasearch_roles']:
-                return redirect(url_for('acasearch.index'))
-            return f(*args, **kwargs)
-        return decorated
-    return decorator
+def requires_editor(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        user = get_user_metadata()
+        if not user.get('is_editor', False):
+            return redirect(url_for('acasearch.index'))
+        return f(*args, **kwargs)
+    return decorated
+
+def requires_admin(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        user = get_user_metadata()
+        if not user.get('is_admin', False):
+            return redirect(url_for('acasearch.index'))
+        return f(*args, **kwargs)
+    return decorated
 
 # set global current_user variable
 @bp.before_request
@@ -80,6 +85,19 @@ def callback_handling():
     session['access_token'] = resp['access_token']
     user_info = Users(AUTH0_DOMAIN).userinfo(session['access_token'])
     session['profile'] = user_info
+    
+    # Check if user exists in MongoDB, if not create a new entry
+    if not mongo.db.users.find_one({"sub": user_info['sub']}):
+        mongo.db.users.insert_one(
+            {
+                "sub": user_info['sub'], 
+                "metadata": {
+                    "is_admin": False,
+                    "is_editor": False
+                }
+            }
+        )
+    
     return redirect(url_for('acasearch.index'))
 
 @auth0_bp.route('/logout')
@@ -89,70 +107,43 @@ def logout():
     params = {'returnTo': url_for('acasearch.index', _external=True), 'client_id': AUTH0_CLIENT_ID}
     return redirect(auth0.base_url + 'v2/logout?' + urlencode(params))
 
-class UserProfileForm(FlaskForm):
-    default_tutor_language = StringField('Default Tutor Language', validators=[DataRequired()], default='English')
-    api_key = StringField('API Key', validators=[DataRequired()])
-
 @bp.route('/user', methods=['GET', 'POST'])
 @requires_auth
 def user():
     error_message, success_message = None, None
-    form = UserProfileForm()
-    if request.method == 'GET':
-        app_metadata = get_app_metadata()
-    try:
-        if form.validate_on_submit():
-            update_app_metadata(
-                default_tutor_language=form.default_tutor_language.data,
-                api_key=form.api_key.data
-            )
-            success_message = 'Profile updated successfully!'
-
-
-        return render_template(
-            'user.html', form=form, user=session['profile'], 
-            error_message=error_message, success_message=success_message
-        )
-    except Exception as e:
-        error_message = str(e)
-        traceback.print_exc()
-        # return render_template(
-        #     'user.html', form=form, user=session['profile'], 
-        #     error_message=error_message, success_message=success_message
-        # )
-        # redirect to logout
-        return redirect('/auth0/logout')
+    return render_template(
+        'user.html', user=get_user_metadata(), 
+        error_message=error_message, success_message=success_message
+    )
     
 def get_management_api_token():
     get_token = GetToken(AUTH0_DOMAIN, AUTH0_CLIENT_ID, AUTH0_CLIENT_SECRET)
     token = get_token.client_credentials(audience=f'https://{AUTH0_DOMAIN}/api/v2/')
     return token['access_token']
 
-def update_app_metadata(default_tutor_language, api_key):
-    auth0_mgmt_api = Auth0(AUTH0_DOMAIN, get_management_api_token())
+def update_user_metadata(is_admin, is_editor):
     metadata = {
-        'default_tutor_language': default_tutor_language,
-        'api_key': api_key
+        'is_admin': is_admin,
+        'is_editor': is_editor
     }
     sub = session['profile']['sub']
-    auth0_mgmt_api.users.update(session['profile']['sub'], {'app_metadata': metadata})
-    session['profile']['app_metadata'] = metadata
+    mongo.db.users.update_one({"sub": sub}, {"$set": {"metadata": metadata}})
+    session['profile']['metadata'] = metadata
 
-def get_app_metadata():
-    # if user is not logged in, return empty dict
+def get_user_metadata():
     if 'profile' not in session:
         return {}
-    if 'app_metadata' in session['profile']:
-        return session['profile']['app_metadata']
-    auth0_mgmt_api = Auth0(AUTH0_DOMAIN, get_management_api_token())
-    app_metadata = auth0_mgmt_api.users.get(session['profile']['sub']).get('app_metadata', {})
-    session['profile']['app_metadata'] = app_metadata
-    return app_metadata
+    data = session['profile']
+    user = mongo.db.users.find_one({"sub": session['profile']['sub']},
+                                   {"metadata": 1})
+    if user:
+        data.update(user['metadata'])
+    return data
 
 @auth0_bp.route('/delete_account', methods=['POST'])
 def delete_account():
-    auth0_mgmt_api = Auth0(AUTH0_DOMAIN, get_management_api_token())
-    auth0_mgmt_api.users.delete(session['profile']['sub'])
+    sub = session['profile']['sub']
+    mongo.db.users.delete_one({"sub": sub})
     session.clear()
     flash('Account deleted successfully!', 'success')
     return redirect('/')

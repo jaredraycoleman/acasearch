@@ -3,6 +3,7 @@ from flask import Flask
 from flask import Blueprint
 import os
 import dotenv
+from flask_pymongo import PyMongo
 from werkzeug.middleware.proxy_fix import ProxyFix
 import pathlib
 import logging
@@ -24,3 +25,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = SECRET_KEY
 app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_host=1, x_proto=1)  # Adjust these values according to your setup
 bp = Blueprint('acasearch', __name__, static_folder='static', static_url_path='/static')
+
+
+app.config["MONGO_URI"] = os.getenv("MONGO_URI")
+mongo = PyMongo(app)
