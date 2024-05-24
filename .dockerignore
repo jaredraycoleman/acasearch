@@ -12,3 +12,7 @@ docker-compose.yml
 **/venv
 **/env
 **/__pycache__
+
+deploy.sh
+deployment
+**/.vscode

@@ -1,0 +1,98 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: acasearch
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: acasearch
+  name: acasearch-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: acasearch-service
+      app.kubernetes.io/part-of: acasearch
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: acasearch-service
+        app.kubernetes.io/part-of: acasearch
+    spec:
+      containers:
+        - name: service
+          image: jaredraycoleman/acasearch:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          env:
+            - name: FLASK_ENV
+              value: production
+            - name: DEPLOY_ID
+              value: DEPLOYID-9e143dac384d3049f0243e4174c09379
+              
+            - name: SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: secret-key
+                  key: SECRET_KEY
+
+            - name: AUTH0_CALLBACK_URL
+              value: https://chatlang.net/auth0/callback
+            - name: AUTH0_CLIENT_ID
+              value: N0mJdsvIZWlVb7J8x1CQfwj84kA7GqVR
+            - name: AUTH0_DOMAIN
+              value: kubishi.us.auth0.com
+            - name: AUTH0_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: auth0-client-secret
+                  key: AUTH0_CLIENT_SECRET
+
+            - name: MONGO_URI
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-uri
+                  key: MONGO_URI
+                  
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: acasearch
+  name: acasearch-service
+spec:
+  selector:
+    app.kubernetes.io/name: acasearch-service
+    app.kubernetes.io/part-of: acasearch
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: acasearch-service-ingress
+  namespace: acasearch
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: web, websecure
+    cert-manager.io/cluster-issuer: letsencrypt-issuer
+spec:
+  rules:
+    - host: conferences.kubishi.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: acasearch-service
+                port:
+                  number: 80
+  tls:
+    - secretName: acasearch-service-cert
+      hosts:
+        - conferences.kubishi.com
+

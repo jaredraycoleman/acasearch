@@ -1,6 +1,5 @@
 from functools import wraps
 import os
-import traceback
 from urllib.parse import urlencode
 from app_base import bp, mongo
 
@@ -8,10 +7,6 @@ from auth0.authentication import Users, GetToken
 from flask import session, url_for, flash, g
 from flask_oauthlib.client import OAuth
 from flask import Blueprint, render_template, redirect, request
-from flask_wtf import FlaskForm
-from wtforms import BooleanField
-from wtforms.validators import DataRequired
-from auth0.management.auth0 import Auth0
 
 
 auth0_bp = Blueprint('auth0', __name__)
@@ -31,8 +26,8 @@ auth0 = oauth.remote_app(
     },
     base_url=f'https://{AUTH0_DOMAIN}/',
     access_token_method='POST',
-    access_token_url=f'/oauth/token',
-    authorize_url=f'/authorize',
+    access_token_url='/oauth/token',
+    authorize_url='/authorize',
 )
 
 def requires_auth(f):
@@ -76,11 +71,13 @@ def login():
 def callback_handling():
     resp = auth0.authorized_response()
     if resp is None or resp.get('access_token') is None:
-        return 'Access denied: reason={} error={}'.format(
-            request.args['error_reason'],
-            request.args['error_description']
-        )
+        error_reason = request.args.get('error_reason', 'No error reason provided')
+        error_description = request.args.get('error_description', 'No error description provided')
+        return f'Access denied: reason={error_reason} error={error_description}'
     
+    # Log the response for debugging
+    print("Auth0 response:", resp)
+
     # Store user info and tokens
     session['access_token'] = resp['access_token']
     user_info = Users(AUTH0_DOMAIN).userinfo(session['access_token'])
@@ -103,9 +100,10 @@ def callback_handling():
 @auth0_bp.route('/logout')
 def logout():
     session.clear()
-    # logout from auth0.com too
     params = {'returnTo': url_for('acasearch.index', _external=True), 'client_id': AUTH0_CLIENT_ID}
-    return redirect(auth0.base_url + 'v2/logout?' + urlencode(params))
+    logout_url = auth0.base_url + 'v2/logout?' + urlencode(params)
+    print(f'logout_url: {logout_url}')
+    return redirect(logout_url)
 
 @bp.route('/user', methods=['GET', 'POST'])
 @requires_auth
